@@ -1,0 +1,4 @@
+.moroccan-background-canvas {
+    cursor: none;
+    opacity: var(--canvas-opacity, 0.5);
+}
