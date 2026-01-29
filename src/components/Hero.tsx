@@ -1,4 +1,4 @@
-import { Download, Github, Linkedin, Mail, Layout, ChevronDown, Code2 } from 'lucide-react';
+import { Download, Github, Linkedin, Mail, Layout, ChevronDown, Code2, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import profileImage from '../assets/profile.jpg';
@@ -157,6 +157,9 @@ const Hero = () => {
                             </a>
                             <a href={`mailto:${siteConfig.email}`} aria-label="Send Email" className="p-3 text-[var(--text-tertiary)] hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-full transition-all hover:-translate-y-1 active:scale-90 focus:outline-none focus:ring-2 focus:ring-red-400">
                                 <Mail size={24} />
+                            </a>
+                            <a href={siteConfig.social.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="p-3 text-[var(--text-tertiary)] hover:text-green-500 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-full transition-all hover:-translate-y-1 active:scale-90 focus:outline-none focus:ring-2 focus:ring-green-400">
+                                <MessageCircle size={24} />
                             </a>
                         </motion.div>
                     </div>

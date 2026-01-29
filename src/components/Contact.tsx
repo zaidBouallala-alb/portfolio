@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, Send, ArrowRight } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, ArrowRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { siteConfig } from '../data/site';
 
@@ -118,6 +118,28 @@ const Contact = () => {
                             <div className="text-left">
                                 <h5 className="font-bold text-[var(--text-primary)]">Telegram</h5>
                                 <span className="text-sm text-[var(--text-tertiary)] font-medium">Quick chat</span>
+                            </div>
+                        </motion.a>
+
+                        <motion.a
+                            key="whatsapp"
+                            href={siteConfig.social.whatsapp}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            whileHover={{ y: -5 }}
+                            whileTap={{ scale: 0.95 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                            className="group relative z-10 sm:col-span-2 p-6 bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border-primary)] hover:border-green-200 dark:hover:border-green-900/50 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-4 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 dark:focus-visible:ring-green-400"
+                        >
+                            <div className="w-10 h-10 bg-[var(--bg-primary)] rounded-xl flex items-center justify-center text-green-600 dark:text-green-400 group-hover:scale-110 transition-transform">
+                                <MessageCircle className="w-5 h-5" />
+                            </div>
+                            <div className="text-left">
+                                <h5 className="font-bold text-[var(--text-primary)]">WhatsApp</h5>
+                                <span className="text-sm text-[var(--text-tertiary)] font-medium">Chat directly</span>
                             </div>
                         </motion.a>
                     </div>

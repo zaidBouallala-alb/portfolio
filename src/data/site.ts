@@ -7,6 +7,7 @@ export const siteConfig = {
         github: "https://github.com/zaidBouallala-alb",
         linkedin: "https://linkedin.com/in/zaid-bouallala-60513a338",
         telegram: "https://t.me/zaidBouallala",
+        whatsapp: "https://wa.me/212602819259",
     },
     cv: {
         english: "https://drive.google.com/uc?export=download&id=1tlq4JyxFB_tduwbsjG_2aHxybxN4KTr-",

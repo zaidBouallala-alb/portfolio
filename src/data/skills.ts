@@ -10,6 +10,7 @@ export const skillsData: SkillCategory[] = [
             "HTML",
             "CSS",
             "JavaScript",
+            "TypeScript",
             "React",
             "Redux"
         ],
@@ -17,6 +18,8 @@ export const skillsData: SkillCategory[] = [
     {
         title: "Backend",
         skills: [
+            "Node.js",
+            "Express",
             "Laravel",
             "PHP",
             "Python"
