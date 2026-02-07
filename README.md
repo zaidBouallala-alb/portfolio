@@ -8,6 +8,12 @@
 
 A high-performance, responsive, and interactive personal portfolio website built with the modern React ecosystem. This project showcases professional experience, technical skills, and creative projects with a focus on clean code, accessibility, and premium UI/UX.
 
+<p align="center">
+  <img src="./images/screenshot.png" alt="Portfolio Homepage" width="600"/>
+  <br>
+  <em>Portfolio Homepage Design</em>
+</p>
+
 ## ✨ Features
 
 - **Modern Tech Stack**: Built with React 19, TypeScript, and Vite for blazing fast performance.
