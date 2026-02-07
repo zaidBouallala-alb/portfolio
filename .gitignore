@@ -1,47 +1,21 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Ignore everything
+*
 
-# Dependencies
-node_modules
-.pnpm-store
-
-# Build
-dist
-dist-ssr
-*.local
-build
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Environment variables
-.env
-.env.local
-.env.*.local
-
-# TestSprite
-testsprite_tests/tmp
-testsprite_tests/testsprite-mcp-test-report.html
-prd.md
-# Keep the markdown report if desired, or verify if it should be ignored.
-# For now, we ignore the HTML report and tmp files.
-
-# OS Metadata
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-.directory
+# But not these files/folders
+!src/
+!src/**
+!public/
+!public/**
+!images/
+!images/**
+!index.html
+!package.json
+!package-lock.json
+!vite.config.ts
+!tsconfig.json
+!tsconfig.app.json
+!tsconfig.node.json
+!eslint.config.js
+!README.md
+!.gitignore
+!LICENSE
