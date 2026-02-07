@@ -28,5 +28,14 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/zaidBouallala-alb/weather-app",
         liveUrl: undefined,
         image: "https://placehold.co/800x450/1e293b/cbd5e1?text=Weather+App",
+    },
+    {
+        id: 3,
+        title: "School Management System",
+        description: "A full-stack school management application for managing students, classes, schedules, and academic resources.",
+        tech: ["React", "Laravel", "MySQL", "Tailwind CSS"],
+        githubUrl: "https://github.com/zaidBouallala-alb/school-management-system",
+        liveUrl: undefined,
+        image: "https://placehold.co/800x450/1e293b/cbd5e1?text=School+Management",
     }
 ];

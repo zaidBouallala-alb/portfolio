@@ -1,4 +1,7 @@
-# 🚀 Personal Developer Portfolio
+# Personal Portfolio – Full Stack Web Developer
+**By Zaid Bouallala**
+
+Built with React, TypeScript, Tailwind CSS & Vite
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![React](https://img.shields.io/badge/React-19-blue)
@@ -8,10 +11,20 @@
 
 A high-performance, responsive, and interactive personal portfolio website built with the modern React ecosystem. This project showcases professional experience, technical skills, and creative projects with a focus on clean code, accessibility, and premium UI/UX.
 
+## 🔗 Live Demo
+
+👉 **[View Live Portfolio](https://fullstack-zaid.vercel.app/)**
+
 <p align="center">
   <img src="./images/screenshot.png" alt="Portfolio Homepage" width="600"/>
   <br>
   <em>Portfolio Homepage Design</em>
+</p>
+
+<p align="center">
+  <img src="./images/screenshot2.png" alt="Portfolio Projects Section" width="600"/>
+  <br>
+  <em>Projects Section</em>
 </p>
 
 ## ✨ Features
