@@ -1,3 +1,4 @@
+
 export interface EducationItem {
     id: number;
     year: string;
@@ -12,28 +13,27 @@ export const education: EducationItem[] = [
         year: "2025 – 2026",
         title: "Diploma in Full Stack Web Development",
         institution: "ISTA",
-        description: "Emphasize React.js for frontend, Laravel and Express.js for backend, RESTful API development, and full-stack application architecture."
+        description: "Built full-stack web applications with React.js, Laravel, Express.js, and RESTful APIs."
     },
     {
         id: 2,
         year: "2024 – 2025",
         title: "Diploma in Digital Development",
         institution: "ISTA",
-        description: "Focus on JavaScript and PHP, web fundamentals (HTML, CSS), and building dynamic web applications."
+        description: "Developed dynamic web applications using JavaScript, PHP, HTML, and CSS."
     },
     {
         id: 3,
         year: "2022 – 2024",
         title: "University Studies in Economics & Management",
         institution: "Faculty of Economics",
-        description: "Focused on economics, management fundamentals, analytical thinking, and organizational skills."
+        description: "Strengthened analytical thinking and business fundamentals."
     },
     {
         id: 4,
         year: "2022",
         title: "Baccalaureate in Mathematical Sciences",
         institution: "High School",
-        description: "Emphasize strong foundations in mathematics, logic, and problem-solving."
+        description: "Built a strong foundation in mathematics and problem-solving."
     }
 ];
-
