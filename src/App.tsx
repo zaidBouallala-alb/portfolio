@@ -9,6 +9,7 @@ import About from './components/About';
 
 // Lazy load below-the-fold components
 const Skills = lazy(() => import('./components/Skills'));
+const Education = lazy(() => import('./components/Education'));
 const Projects = lazy(() => import('./components/Projects'));
 const Contact = lazy(() => import('./components/Contact'));
 
@@ -23,6 +24,7 @@ function App() {
         <About />
         <Suspense fallback={<div className="py-20 text-center text-gray-500 dark:text-gray-400">Loading content...</div>}>
           <Skills />
+          <Education />
           <Projects />
           <Contact />
         </Suspense>
