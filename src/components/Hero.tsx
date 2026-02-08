@@ -10,7 +10,7 @@ const Hero = () => {
 
 
     return (
-        <section id="about" className="min-h-screen flex items-center justify-center pt-20 pb-16 md:pt-24 md:pb-32 relative overflow-hidden">
+        <section id="hero" className="min-h-screen flex items-center justify-center pt-20 pb-16 md:pt-24 md:pb-32 relative overflow-hidden">
             {/* Background elements - unchanged */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_70%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(29,78,216,0.1),transparent_70%)] pointer-events-none" />
 
