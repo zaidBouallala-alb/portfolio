@@ -33,7 +33,7 @@ export const projects: Project[] = [
         id: 3,
         title: "School Management System",
         description: "A full-stack school management application for managing students, classes, schedules, and academic resources.",
-        tech: ["React", "Laravel", "MySQL", "Tailwind CSS"],
+        tech: ["Full Stack", "React", "Laravel", "MySQL", "Tailwind CSS"],
         githubUrl: "https://github.com/zaidBouallala-alb/school-management-system",
         liveUrl: undefined,
         image: "https://placehold.co/800x450/1e293b/cbd5e1?text=School+Management",
