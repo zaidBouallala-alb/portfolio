@@ -25,12 +25,12 @@ const Projects = () => {
                         transition={{ duration: 0.5 }}
                         className="text-center md:text-left w-full md:w-auto"
                     >
-                        <h2 className="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">
+                        <span className="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2 block">
                             Portfolio
-                        </h2>
-                        <h3 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)] tracking-tight">
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)] tracking-tight">
                             Selected Works
-                        </h3>
+                        </h2>
                     </motion.div>
 
                     {/* Filter Buttons - horizontal scroll with snap */}

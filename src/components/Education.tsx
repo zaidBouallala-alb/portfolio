@@ -14,12 +14,12 @@ const Education = () => {
                     transition={{ duration: 0.5 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">
+                    <span className="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2 block">
                         My Journey
-                    </h2>
-                    <h3 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)]">
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)]">
                         Education & Training
-                    </h3>
+                    </h2>
                 </motion.div>
 
                 <div className="relative max-w-4xl mx-auto">
@@ -52,9 +52,9 @@ const Education = () => {
                                             <span>{item.year}</span>
                                         </div>
 
-                                        <h4 className="text-xl font-bold text-[var(--text-primary)] mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                                        <h3 className="text-xl font-bold text-[var(--text-primary)] mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                                             {item.title}
-                                        </h4>
+                                        </h3>
 
                                         <div className={`flex items-center gap-2 mb-4 text-[var(--text-secondary)] font-medium ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'
                                             }`}>

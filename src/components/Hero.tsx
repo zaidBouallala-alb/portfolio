@@ -45,9 +45,12 @@ const Hero = () => {
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
                                     Zaid Bouallala
                                 </span>
+                                <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl mt-2 font-bold text-[var(--text-secondary)]">
+                                    Full Stack Developer
+                                </span>
                             </h1>
                             <p className="text-lg sm:text-xl md:text-2xl text-[var(--text-tertiary)] max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
-                                Full Stack Developer crafting exceptional digital experiences with modern technologies.
+                                Crafting high-performance web applications with React and Laravel, delivering seamless user experiences from frontend to backend.
                             </p>
                         </motion.div>
 

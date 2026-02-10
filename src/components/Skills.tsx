@@ -42,12 +42,12 @@ const Skills = () => {
                     transition={{ duration: 0.5 }}
                     className="text-center mb-12 md:mb-16"
                 >
-                    <h2 className="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">
+                    <span className="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2 block">
                         Expertise
-                    </h2>
-                    <h3 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)] mb-4">
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)] mb-4">
                         Technical Skills
-                    </h3>
+                    </h2>
                     <p className="text-base md:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto font-medium">
                         A comprehensive toolkit of modern technologies I use to build robust applications.
                     </p>
@@ -72,9 +72,9 @@ const Skills = () => {
                                 <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-blue-700 dark:text-blue-400">
                                     <Icon className="w-6 h-6" />
                                 </div>
-                                <h4 className="text-lg font-bold text-[var(--text-primary)] mb-4">
+                                <h3 className="text-lg font-bold text-[var(--text-primary)] mb-4">
                                     {category.title}
-                                </h4>
+                                </h3>
                                 <div className="flex flex-wrap gap-2">
                                     {category.skills.map((skill) => (
                                         <span

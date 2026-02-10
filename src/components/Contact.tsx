@@ -14,12 +14,12 @@ const Contact = () => {
                     transition={{ duration: 0.5 }}
                     className="text-center mb-12 md:mb-16 space-y-2"
                 >
-                    <h2 className="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
+                    <span className="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest block">
                         Get in Touch
-                    </h2>
-                    <h3 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)]">
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)]">
                         Contact Me
-                    </h3>
+                    </h2>
                     <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto font-medium pt-2">
                         I'm currently open to new opportunities. Whether you have a question or just want to say hi, feel free to reach out!
                     </p>

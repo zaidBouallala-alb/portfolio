@@ -11,22 +11,23 @@ const About = () => {
                     transition={{ duration: 0.5 }}
                     className="max-w-3xl mx-auto text-center"
                 >
-                    <h2 className="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">
+                    <span className="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2 block">
                         My Story
-                    </h2>
-                    <h3 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)] mb-6 md:mb-8">
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)] mb-6 md:mb-8">
                         About Me
-                    </h3>
+                    </h2>
 
                     <div className="space-y-4 md:space-y-6 text-base md:text-lg text-[var(--text-secondary)] leading-relaxed font-medium">
                         <p>
-                            I'm a passionate Full Stack Developer focused on building scalable, accessible, and high-performance web applications.
-                            My journey in software development is driven by curiosity to understand how systems work end-to-end and a desire to create
-                            meaningful digital experiences.
+                            I'm Zaid Bouallala, a Full Stack Developer based in Morocco, specializing in React,
+                            Laravel, and MySQL. I build scalable, accessible, and high-performance web applications
+                            that deliver seamless experiences from frontend to backend.
                         </p>
                         <p>
-                            I continuously improve my full-stack skills by working on real-world projects, aiming to deliver clean, reliable, and efficient
-                            software solutions that solve complex problems.
+                            With hands-on experience across JavaScript, TypeScript, PHP, and modern development
+                            tools, I focus on writing clean, reliable code and solving complex problems through
+                            well-architected software solutions.
                         </p>
 
                     </div>
