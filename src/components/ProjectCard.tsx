@@ -29,9 +29,12 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                     {project.image ? (
                         <img
                             src={project.image}
-                            alt={project.title}
+                            alt={`${project.title} — project by Zaid Bouallala`}
                             className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out will-change-transform"
                             loading="lazy"
+                            decoding="async"
+                            width={600}
+                            height={338}
                         />
                     ) : (
                         <div className="w-full h-full flex items-center justify-center text-gray-400 dark:text-gray-600 bg-gray-50 dark:bg-gray-800/50">
