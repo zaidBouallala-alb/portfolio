@@ -13,7 +13,7 @@ A high-performance, responsive, and interactive personal portfolio website built
 
 ## 🔗 Live Demo
 
-👉 **[View Live Portfolio](https://fullstack-zaid.vercel.app/)**
+**[View Live Portfolio](https://fullstack-zaid.vercel.app/)**
 
 <p align="center">
   <img src="./images/screenshot.png" alt="Portfolio Homepage" width="600"/>
@@ -27,7 +27,7 @@ A high-performance, responsive, and interactive personal portfolio website built
   <em>Projects Section</em>
 </p>
 
-## ✨ Features
+##  Features
 
 - **Modern Tech Stack**: Built with React 19, TypeScript, and Vite for blazing fast performance.
 - **Responsive Design**: Mobile-first architecture ensures a perfect experience across all devices.
@@ -36,7 +36,7 @@ A high-performance, responsive, and interactive personal portfolio website built
 - **Accessibility (a11y)**: Semantic HTML and ARIA labels for screen reader support.
 - **High Performance**: Optimized assets, lazy loading, and code splitting.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Framework**: [React](https://react.dev/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
@@ -45,7 +45,7 @@ A high-performance, responsive, and interactive personal portfolio website built
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
 
-## 📂 Project Structure
+##  Project Structure
 
 ```bash
 src/
@@ -57,7 +57,7 @@ src/
 └── index.css       # Global styles and Tailwind configuration
 ```
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -89,7 +89,7 @@ src/
 
     Open [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal) to view the app.
 
-## 🏗️ Building for Production
+##  Building for Production
 
 To create an optimized production build:
 
@@ -99,7 +99,7 @@ npm run build
 
 The output will be generated in the `dist` directory, ready for deployment.
 
-## 🌍 Deployment
+##  Deployment
 
 ### Vercel (Recommended) & Netlify
 
@@ -131,7 +131,7 @@ To deploy to GitHub Pages:
 
 3. Upload the contents of the `dist` folder to your repository (usually the `gh-pages` branch).
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
