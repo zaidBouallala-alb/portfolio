@@ -10,8 +10,8 @@ export const siteConfig = {
         whatsapp: "https://wa.me/212602819259",
     },
     cv: {
-        english: "https://drive.google.com/file/d/1D3_VbFj8jQlluzvytoLu7ZHDu9KcIIGB/view?usp=drive_link",
-        french: "https://drive.google.com/file/d/1__rXAkfT2jgEMyP7wvZPCTrhnnz4ueTq/view?usp=drive_link"
+        english: "https://drive.google.com/file/d/1PSfHwjSZxCj81Ga-KmdzBZDwv6keSc7E/view?usp=sharing",
+        french: "https://drive.google.com/file/d/1BD-JpRkfkD3qlOzjGXg2ZKE9NUXGwuvP/view?usp=sharing"
     },
     resume: "/resume.pdf", // Path to resume in public folder
     bio: "https://github.com/zaidBouallala-alb", // Link for "All Links" or similar
