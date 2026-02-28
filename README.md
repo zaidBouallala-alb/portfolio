@@ -89,47 +89,6 @@ src/
 
     Open [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal) to view the app.
 
-##  Building for Production
-
-To create an optimized production build:
-
-```bash
-npm run build
-```
-
-The output will be generated in the `dist` directory, ready for deployment.
-
-##  Deployment
-
-### Vercel (Recommended) & Netlify
-
-This project is optimized for static hosting. Connect your GitHub repository to Vercel or Netlify, and it will automatically detect the settings:
-
-- **Build Command**: `npm run build`
-- **Output Directory**: `dist`
-
-### GitHub Pages
-
-To deploy to GitHub Pages:
-
-1. Update `vite.config.ts` if this is a project repository (e.g., `username.github.io/repo-name`):
-
-    ```ts
-    export default defineConfig({
-      base: '/repo-name/', // Add your repo name here
-      // ...
-    })
-    ```
-
-    *If this is your main user site (`username.github.io`), you can skip this step.*
-
-2. Run the build:
-
-    ```bash
-    npm run build
-    ```
-
-3. Upload the contents of the `dist` folder to your repository (usually the `gh-pages` branch).
 
 ##  License
 
