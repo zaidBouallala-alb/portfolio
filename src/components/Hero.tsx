@@ -183,7 +183,7 @@ const Hero = () => {
                                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-[2rem] rotate-6 opacity-20 blur-lg"></div>
                                 <img
                                     src={profileImage}
-                                    alt="Zaid Bouallala — Full Stack Developer specializing in React and Laravel"
+                                    alt="Zaid Bouallala — Full Stack Developer in Morocco specializing in React and Laravel"
                                     fetchPriority="high"
                                     decoding="async"
                                     width={500}
