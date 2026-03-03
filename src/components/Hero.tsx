@@ -50,7 +50,9 @@ const Hero = () => {
                                 </span>
                             </h1>
                             <p className="text-lg sm:text-xl md:text-2xl text-[var(--text-tertiary)] max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
-                                Crafting high-performance web applications with React and Laravel, delivering seamless user experiences from frontend to backend.
+                                I build high-performance, SEO-friendly web applications using React and Laravel.
+                                As a Full Stack Developer in Morocco, I help businesses and startups create modern,
+                                scalable digital solutions with seamless frontend and backend integration.
                             </p>
                         </motion.div>
 
