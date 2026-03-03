@@ -15,7 +15,7 @@ const About = () => {
                         My Story
                     </span>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)] mb-6 md:mb-8">
-                        About Me
+                        About Me – Full Stack Developer in Morocco
                     </h2>
 
                     <div className="space-y-4 md:space-y-6 text-base md:text-lg text-[var(--text-secondary)] leading-relaxed font-medium">
