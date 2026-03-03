@@ -20,9 +20,9 @@ const About = () => {
 
                     <div className="space-y-4 md:space-y-6 text-base md:text-lg text-[var(--text-secondary)] leading-relaxed font-medium">
                         <p>
-                            I'm Zaid Bouallala, a Full Stack Developer based in Morocco, specializing in React,
-                            Laravel, and MySQL. I build scalable, accessible, and high-performance web applications
-                            that deliver seamless experiences from frontend to backend.
+                           I'm Zaid Bouallala, a Full Stack Developer based in Morocco, specializing in React, Laravel, and MySQL. 
+    I design and build modern, scalable web applications that deliver fast performance, clean user interfaces, 
+    and reliable backend architecture.
                         </p>
                         <p>
                             With hands-on experience across JavaScript, TypeScript, PHP, and modern development
