@@ -30,6 +30,12 @@ const About = () => {
                             My expertise includes JavaScript, TypeScript, PHP, RESTful APIs,
                             and database design using MySQL.
                         </p>
+                        <p>
+                            I focus on writing clean, maintainable code and developing SEO-friendly,
+                            high-performance web applications that provide seamless user experiences across all devices.
+                            Whether it's a portfolio website, business platform, or full-stack web solution,
+                            I aim to deliver scalable and impactful digital products.
+                        </p>
 
 
                     </div>
