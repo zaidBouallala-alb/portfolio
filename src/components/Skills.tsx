@@ -49,7 +49,11 @@ const Skills = () => {
                         Technical Skills
                     </h2>
                     <p className="text-base md:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto font-medium">
-                        A comprehensive toolkit of modern technologies I use to build robust applications.
+                        As a Full Stack Developer in Morocco, I work with modern frontend and backend technologies
+                        to build scalable, secure, and high-performance web applications.
+                        My technical stack includes React, TypeScript, Laravel, Node.js, and database systems such as MySQL and MongoDB.
+                        I specialize in developing responsive user interfaces, RESTful APIs, and scalable web architectures.
+
                     </p>
                 </motion.div>
 
@@ -90,7 +94,7 @@ const Skills = () => {
                     })}
                 </motion.div>
             </div>
-        </section>
+        </section >
     );
 };
 
