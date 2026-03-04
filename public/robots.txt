@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fullstack-zaid.vercel.app/sitemap.xml
+Sitemap: https://zaidbouallala.vercel.app/sitemap.xml
+        
