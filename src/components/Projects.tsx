@@ -61,7 +61,7 @@ const Projects = () => {
                 {/* 'View All' Link */}
                 <div className="flex justify-center">
                     <a
-                        href="https://github.com/zaidBouallala-alb?tab=repositories"
+                        href="https://github.com/zaidBouallala?tab=repositories"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-all group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 active:scale-95 cursor-pointer"
