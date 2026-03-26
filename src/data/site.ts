@@ -2,7 +2,7 @@ export const siteConfig = {
     name: "Zaid Bouallala",
     role: "Full Stack Web Developer",
     tagline: "I build accessible, pixel-perfect, and performant web applications. Focused on creating seamless user experiences with modern technologies.",
-    email: "zbouallala7@gmail.com",
+    email: "zaidbouallala7@gmail.com",
     social: {
         github: "https://github.com/zaidBouallala",
         linkedin: "https://linkedin.com/in/bouallala-zaid",
