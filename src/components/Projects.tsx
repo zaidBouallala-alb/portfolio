@@ -8,7 +8,7 @@ const Projects = () => {
     const [activeCategory, setActiveCategory] = useState("All");
 
     // Extract unique categories (mocked logic or derived)
-    const categories = ["All", "React", "Backend", "Full Stack"];
+    const categories = ["All", "Frontend", "Backend", "Full Stack"];
 
     const filteredProjects = activeCategory === "All"
         ? projects
