@@ -1,0 +1,127 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "status": "Open to opportunities · Remote & On-site",
+    "headline1": "I turn ideas into",
+    "headlineHighlight": "scalable",
+    "headline2": "web products.",
+    "intro": "Hi, I'm",
+    "name": "Zaid Bouallala",
+    "introText": "— a full stack developer from Morocco who ships products that",
+    "introHighlight": "perform fast, scale cleanly, and look great.",
+    "introEnd": "From pixel-perfect UIs to robust APIs.",
+    "viewWork": "View My Work",
+    "contactMe": "Contact Me",
+    "downloadCv": "Download CV",
+    "enCv": "EN CV",
+    "frCv": "FR CV",
+    "englishCv": "English CV",
+    "frenchCv": "French CV",
+    "scroll": "Scroll",
+    "stack": "Stack",
+    "stackItems": "React · Laravel · Node",
+    "morocco": "Morocco",
+    "fullStackDev": "Full Stack Developer",
+    "roles": [
+      "Full Stack Developer",
+      "React Specialist",
+      "Laravel Developer",
+      "Web App Builder",
+      "UI/UX Enthusiast"
+    ]
+  },
+  "about": {
+    "label": "My Story",
+    "title": "About Me – Full Stack Developer in Morocco",
+    "p1": "I'm Zaid Bouallala, a Full Stack Developer based in Morocco, specializing in React, Laravel, and MySQL. I design and build modern, scalable web applications that deliver fast performance, clean user interfaces, and reliable backend architecture.",
+    "p2": "As a Full Stack Web Developer based in Morocco, I help businesses, startups, and individuals build professional websites and custom web applications tailored to their specific goals. My expertise includes JavaScript, TypeScript, PHP, RESTful APIs, and database design using MySQL.",
+    "p3": "I focus on writing clean, maintainable code and developing SEO-friendly, high-performance web applications that provide seamless user experiences across all devices. Whether it's a portfolio website, business platform, or full-stack web solution, I aim to deliver scalable and impactful digital products."
+  },
+  "skills": {
+    "label": "Expertise",
+    "title": "Technical Skills",
+    "description": "As a Full Stack Developer in Morocco, I work with modern frontend and backend technologies to build scalable, secure, and high-performance web applications. My technical stack includes React, TypeScript, Laravel, Node.js, and database systems such as MySQL and MongoDB. I specialize in developing responsive user interfaces, RESTful APIs, and scalable web architectures.",
+    "categories": {
+      "Frontend": "Frontend",
+      "Backend": "Backend",
+      "Databases": "Databases",
+      "Tools & Principles": "Tools & Principles"
+    }
+  },
+  "education": {
+    "label": "My Journey",
+    "title": "Education & Training",
+    "items": [
+      {
+        "title": "Diploma in Full Stack Web Development",
+        "institution": "ISTA / OFPPT",
+        "description": "Built full-stack web applications with React.js, Laravel, Express.js, and RESTful APIs."
+      },
+      {
+        "title": "First Year in Digital Development",
+        "institution": "ISTA / OFPPT",
+        "description": "Developed dynamic web applications using JavaScript, PHP, HTML, and CSS."
+      },
+      {
+        "title": "University Studies in Economics & Management",
+        "institution": "Faculty of Economics",
+        "description": "Strengthened analytical thinking and business fundamentals."
+      },
+      {
+        "title": "Baccalaureate in Mathematical Sciences",
+        "institution": "High School",
+        "description": "Built a strong foundation in mathematics and problem-solving."
+      }
+    ]
+  },
+  "projects": {
+    "label": "Portfolio",
+    "title": "Selected Works",
+    "viewAll": "View All Projects",
+    "noPreview": "No Preview",
+    "filters": {
+      "All": "All",
+      "Frontend": "Frontend",
+      "Backend": "Backend",
+      "Full Stack": "Full Stack"
+    },
+    "items": [
+      {
+        "title": "OFPPT Learning Resources Platform",
+        "description": "A React-based educational platform inspired by OFPPT course systems to organize and share learning materials for students."
+      },
+      {
+        "title": "Weather Forecast App",
+        "description": "A responsive weather application that fetches real-time weather data from an external API and displays forecasts."
+      },
+      {
+        "title": "School Management System",
+        "description": "A full-stack school management application for managing students, classes, schedules, and academic resources."
+      }
+    ]
+  },
+  "contact": {
+    "label": "Get in Touch",
+    "title": "Contact Me",
+    "description": "I'm currently open to new opportunities. Whether you have a question or just want to say hi, feel free to reach out!",
+    "emailMe": "Email Me",
+    "sendMessage": "Send Message",
+    "connectProfessionally": "Connect professionally",
+    "checkMyCode": "Check my code",
+    "quickChat": "Quick chat",
+    "chatDirectly": "Chat directly",
+    "footer": "Looking forward to hearing from you!"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "theme": {
+    "switchToLight": "Switch to Light Mode",
+    "switchToDark": "Switch to Dark Mode"
+  }
+}
