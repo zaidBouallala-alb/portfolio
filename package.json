@@ -11,9 +11,12 @@
   },
   "dependencies": {
     "framer-motion": "^12.29.2",
+    "i18next": "^26.0.8",
+    "i18next-browser-languagedetector": "^8.2.1",
     "lucide-react": "^0.563.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-i18next": "^17.0.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
