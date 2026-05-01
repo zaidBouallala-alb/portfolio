@@ -1,8 +1,11 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { siteConfig } from '../data/site';
 
 const Footer = () => {
+    const { t } = useTranslation();
+
     return (
         <motion.footer
             initial={{ opacity: 0 }}
@@ -17,36 +20,13 @@ const Footer = () => {
                         {siteConfig.name}
                     </span>
                     <p className="text-[var(--text-tertiary)] text-sm">
-                        © {new Date().getFullYear()} All rights reserved.
+                        © {new Date().getFullYear()} {t('footer.rights')}
                     </p>
                 </div>
-
                 <div className="flex items-center gap-6">
-                    <a
-                        href={siteConfig.social.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-all hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg cursor-pointer"
-                        aria-label="GitHub"
-                    >
-                        <Github size={20} />
-                    </a>
-                    <a
-                        href={siteConfig.social.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[var(--text-tertiary)] hover:text-blue-600 dark:hover:text-blue-400 transition-all hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg cursor-pointer"
-                        aria-label="LinkedIn"
-                    >
-                        <Linkedin size={20} />
-                    </a>
-                    <a
-                        href={`mailto:${siteConfig.email}`}
-                        className="text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-all hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg cursor-pointer"
-                        aria-label="Email"
-                    >
-                        <Mail size={20} />
-                    </a>
+                    <a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer" className="text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-all hover:-translate-y-1 rounded-lg cursor-pointer" aria-label="GitHub"><Github size={20} /></a>
+                    <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-[var(--text-tertiary)] hover:text-blue-600 dark:hover:text-blue-400 transition-all hover:-translate-y-1 rounded-lg cursor-pointer" aria-label="LinkedIn"><Linkedin size={20} /></a>
+                    <a href={`mailto:${siteConfig.email}`} className="text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-all hover:-translate-y-1 rounded-lg cursor-pointer" aria-label="Email"><Mail size={20} /></a>
                 </div>
             </div>
         </motion.footer>

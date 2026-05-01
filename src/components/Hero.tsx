@@ -1,17 +1,9 @@
 import { Download, Github, Mail, ChevronDown, ArrowRight, ExternalLink, MessageCircle, Linkedin, Layers, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import profileImage from '../assets/profile.jpg';
 import { siteConfig } from '../data/site';
-
-/* ─── Typing animation words ──────────────────────────────────────── */
-const ROLES = [
-  'Full Stack Developer',
-  'React Specialist',
-  'Laravel Developer',
-  'Web App Builder',
-  'UI/UX Enthusiast',
-];
 
 /* ─── Tech stack badges ───────────────────────────────────────────── */
 const STACK = [
@@ -24,27 +16,35 @@ const STACK = [
 ];
 
 
-
 /* ─── Typing hook ─────────────────────────────────────────────────── */
-function useTyping(words: string[], speed = 80, pause = 1800) {
+function useTyping(words: string[], langKey: string, speed = 80, pause = 1800) {
   const [display, setDisplay] = useState('');
   const [wordIdx, setWordIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
   const [deleting, setDeleting] = useState(false);
 
+  // Reset only when language actually changes
+  useEffect(() => {
+    setWordIdx(0);
+    setCharIdx(0);
+    setDeleting(false);
+    setDisplay('');
+  }, [langKey]);
+
   useEffect(() => {
     const current = words[wordIdx];
+    if (!current) return;
     if (!deleting && charIdx < current.length) {
-      const t = setTimeout(() => setCharIdx(c => c + 1), speed);
-      return () => clearTimeout(t);
+      const id = setTimeout(() => setCharIdx(c => c + 1), speed);
+      return () => clearTimeout(id);
     }
     if (!deleting && charIdx === current.length) {
-      const t = setTimeout(() => setDeleting(true), pause);
-      return () => clearTimeout(t);
+      const id = setTimeout(() => setDeleting(true), pause);
+      return () => clearTimeout(id);
     }
     if (deleting && charIdx > 0) {
-      const t = setTimeout(() => setCharIdx(c => c - 1), speed / 2);
-      return () => clearTimeout(t);
+      const id = setTimeout(() => setCharIdx(c => c - 1), speed / 2);
+      return () => clearTimeout(id);
     }
     if (deleting && charIdx === 0) {
       setDeleting(false);
@@ -53,7 +53,8 @@ function useTyping(words: string[], speed = 80, pause = 1800) {
   }, [charIdx, deleting, wordIdx, words, speed, pause]);
 
   useEffect(() => {
-    setDisplay(words[wordIdx].slice(0, charIdx));
+    const current = words[wordIdx];
+    if (current) setDisplay(current.slice(0, charIdx));
   }, [charIdx, wordIdx, words]);
 
   return display;
@@ -61,8 +62,14 @@ function useTyping(words: string[], speed = 80, pause = 1800) {
 
 /* ═══════════════════════════════════════════════════════════════════ */
 const Hero = () => {
+  const { t, i18n } = useTranslation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const typedRole = useTyping(ROLES);
+  const roles = useMemo(
+    () => t('hero.roles', { returnObjects: true }) as string[],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [i18n.language]
+  );
+  const typedRole = useTyping(roles, i18n.language);
 
   /* fade-in variants */
   const fadeUp = (delay = 0) => ({
@@ -103,23 +110,23 @@ const Hero = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                 </span>
-                Open to opportunities · Remote &amp; On-site
+                {t('hero.status')}
               </span>
             </motion.div>
 
             {/* ── Headline ──────────────────────────────────────────── */}
             <motion.div {...fadeUp(0.1)} className="space-y-3">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold tracking-tight leading-[1.1] text-[var(--text-primary)]">
-                I turn ideas into{' '}
+                {t('hero.headline1')}{' '}
                 <span className="relative inline-block">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-400 dark:from-indigo-400 dark:via-blue-400 dark:to-cyan-300">
-                    scalable
+                    {t('hero.headlineHighlight')}
                   </span>
                   {/* underline accent */}
                   <span className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-400 opacity-60" />
                 </span>
                 <br />
-                web products.
+                {t('hero.headline2')}
               </h1>
 
               {/* Typing role */}
@@ -136,10 +143,11 @@ const Hero = () => {
               {...fadeUp(0.2)}
               className="text-base sm:text-lg text-[var(--text-tertiary)] max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
-              Hi, I'm <strong className="text-[var(--text-primary)] font-semibold">Zaid Bouallala</strong> —
-              a full stack developer from Morocco who ships products that{' '}
-              <span className="text-[var(--text-secondary)] font-medium">perform fast, scale cleanly, and look great.</span>{' '}
-              From pixel-perfect UIs to robust APIs.
+              {t('hero.intro')}{' '}
+              <strong className="text-[var(--text-primary)] font-semibold">{t('hero.name')}</strong>{' '}
+              {t('hero.introText')}{' '}
+              <span className="text-[var(--text-secondary)] font-medium">{t('hero.introHighlight')}</span>{' '}
+              {t('hero.introEnd')}
             </motion.p>
 
             {/* ── Tech stack badges ─────────────────────────────────── */}
@@ -186,7 +194,7 @@ const Hero = () => {
                   shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50
                   transition-all duration-200"
               >
-                View My Work
+                {t('hero.viewWork')}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </motion.a>
 
@@ -203,7 +211,7 @@ const Hero = () => {
                   transition-all duration-200 shadow-sm"
               >
                 <Mail className="w-4 h-4" />
-                Contact Me
+                {t('hero.contactMe')}
               </motion.a>
 
               {/* Mobile: two CV buttons */}
@@ -219,7 +227,7 @@ const Hero = () => {
                     transition-all active:scale-95"
                 >
                   <Download className="w-4 h-4" />
-                  EN CV
+                  {t('hero.enCv')}
                 </a>
                 <a
                   href={siteConfig.cv.french}
@@ -232,7 +240,7 @@ const Hero = () => {
                     transition-all active:scale-95"
                 >
                   <Download className="w-4 h-4" />
-                  FR CV
+                  {t('hero.frCv')}
                 </a>
               </div>
 
@@ -253,7 +261,7 @@ const Hero = () => {
                       transition-all duration-200 shadow-sm cursor-default"
                   >
                     <Download className="w-4 h-4" />
-                    Download CV
+                    {t('hero.downloadCv')}
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
                   </motion.button>
                   <AnimatePresence>
@@ -275,7 +283,7 @@ const Hero = () => {
                             text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]
                             hover:text-[var(--text-primary)] transition-colors"
                         >
-                          <span className="text-base">🇬🇧</span> English CV
+                          <span className="text-base">🇬🇧</span> {t('hero.englishCv')}
                           <ExternalLink className="w-3 h-3 ml-auto opacity-50" />
                         </a>
                         <div className="h-px bg-[var(--border-primary)] mx-2" />
@@ -287,7 +295,7 @@ const Hero = () => {
                             text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]
                             hover:text-[var(--text-primary)] transition-colors"
                         >
-                          <span className="text-base">🇫🇷</span> French CV
+                          <span className="text-base">🇫🇷</span> {t('hero.frenchCv')}
                           <ExternalLink className="w-3 h-3 ml-auto opacity-50" />
                         </a>
                       </motion.div>
@@ -321,7 +329,6 @@ const Hero = () => {
                   <Icon size={20} />
                 </motion.a>
               ))}
-
             </motion.div>
           </div>
 
@@ -372,8 +379,8 @@ const Hero = () => {
                   <Layers className="w-4 h-4 text-white" />
                 </div>
                 <div className="leading-none">
-                  <p className="text-[10px] font-semibold text-[var(--text-tertiary)] uppercase tracking-wider">Stack</p>
-                  <p className="text-xs font-bold text-[var(--text-primary)] mt-0.5">React · Laravel · Node</p>
+                  <p className="text-[10px] font-semibold text-[var(--text-tertiary)] uppercase tracking-wider">{t('hero.stack')}</p>
+                  <p className="text-xs font-bold text-[var(--text-primary)] mt-0.5">{t('hero.stackItems')}</p>
                 </div>
               </motion.div>
 
@@ -393,8 +400,8 @@ const Hero = () => {
                   <span className="text-white text-lg font-black">Z</span>
                 </div>
                 <div className="leading-none">
-                  <p className="text-xs font-bold text-[var(--text-primary)]">Zaid Bouallala</p>
-                  <p className="text-[10px] text-[var(--text-tertiary)] mt-0.5">Full Stack Developer</p>
+                  <p className="text-xs font-bold text-[var(--text-primary)]">{t('hero.name')}</p>
+                  <p className="text-[10px] text-[var(--text-tertiary)] mt-0.5">{t('hero.fullStackDev')}</p>
                 </div>
               </motion.div>
 
@@ -411,7 +418,7 @@ const Hero = () => {
               >
                 <MapPin className="w-4 h-4 text-rose-500" />
                 <span className="text-[9px] font-bold text-[var(--text-tertiary)] uppercase tracking-wider leading-none">
-                  Morocco
+                  {t('hero.morocco')}
                 </span>
               </motion.div>
             </div>
@@ -428,7 +435,7 @@ const Hero = () => {
         className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5"
       >
         <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--text-tertiary)] font-semibold">
-          Scroll
+          {t('hero.scroll')}
         </span>
         <motion.div
           animate={{ y: [0, 6, 0] }}

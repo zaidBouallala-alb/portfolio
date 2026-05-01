@@ -1,8 +1,11 @@
 import { Mail, Github, Linkedin, Send, ArrowRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { siteConfig } from '../data/site';
 
 const Contact = () => {
+    const { t } = useTranslation();
+
     return (
         <section id="contact" className="py-16 md:py-24 transition-colors duration-300 relative z-10">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,13 +18,13 @@ const Contact = () => {
                     className="text-center mb-12 md:mb-16 space-y-2"
                 >
                     <span className="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest block">
-                        Get in Touch
+                        {t('contact.label')}
                     </span>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)]">
-                        Contact Me
+                        {t('contact.title')}
                     </h2>
                     <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto font-medium pt-2">
-                        I'm currently open to new opportunities. Whether you have a question or just want to say hi, feel free to reach out!
+                        {t('contact.description')}
                     </p>
                 </motion.div>
 
@@ -46,14 +49,14 @@ const Contact = () => {
                         </div>
 
                         <h4 className="relative z-10 text-xl font-bold text-[var(--text-primary)] mb-2">
-                            Email Me
+                            {t('contact.emailMe')}
                         </h4>
                         <p className="relative z-10 text-[var(--text-secondary)] mb-6 font-medium">
                             {siteConfig.email}
                         </p>
 
                         <span className="relative z-10 inline-flex items-center gap-2 text-sm font-bold text-blue-700 dark:text-blue-400 group-hover:gap-3 transition-all">
-                            Send Message <ArrowRight className="w-4 h-4" />
+                            {t('contact.sendMessage')} <ArrowRight className="w-4 h-4" />
                         </span>
                     </motion.a>
 
@@ -76,7 +79,7 @@ const Contact = () => {
                                 <Linkedin className="w-6 h-6" />
                             </div>
                             <h5 className="font-bold text-[var(--text-primary)]">LinkedIn</h5>
-                            <span className="text-sm text-[var(--text-tertiary)] mt-1 font-medium">Connect professionally</span>
+                            <span className="text-sm text-[var(--text-tertiary)] mt-1 font-medium">{t('contact.connectProfessionally')}</span>
                         </motion.a>
 
                         <motion.a
@@ -96,7 +99,7 @@ const Contact = () => {
                                 <Github className="w-6 h-6" />
                             </div>
                             <h5 className="font-bold text-[var(--text-primary)]">GitHub</h5>
-                            <span className="text-sm text-[var(--text-tertiary)] mt-1 font-medium">Check my code</span>
+                            <span className="text-sm text-[var(--text-tertiary)] mt-1 font-medium">{t('contact.checkMyCode')}</span>
                         </motion.a>
 
                         <motion.a
@@ -117,7 +120,7 @@ const Contact = () => {
                             </div>
                             <div className="text-left">
                                 <h5 className="font-bold text-[var(--text-primary)]">Telegram</h5>
-                                <span className="text-sm text-[var(--text-tertiary)] font-medium">Quick chat</span>
+                                <span className="text-sm text-[var(--text-tertiary)] font-medium">{t('contact.quickChat')}</span>
                             </div>
                         </motion.a>
 
@@ -139,7 +142,7 @@ const Contact = () => {
                             </div>
                             <div className="text-left">
                                 <h5 className="font-bold text-[var(--text-primary)]">WhatsApp</h5>
-                                <span className="text-sm text-[var(--text-tertiary)] font-medium">Chat directly</span>
+                                <span className="text-sm text-[var(--text-tertiary)] font-medium">{t('contact.chatDirectly')}</span>
                             </div>
                         </motion.a>
                     </div>
@@ -148,7 +151,7 @@ const Contact = () => {
                 {/* Footer Note */}
                 <div className="text-center">
                     <p className="text-gray-500 dark:text-gray-400 text-sm">
-                        Looking forward to hearing from you!
+                        {t('contact.footer')}
                     </p>
                 </div>
             </div>
