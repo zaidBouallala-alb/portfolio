@@ -1,12 +1,15 @@
 import type { Project } from '../data/projects';
 import { Github, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 interface ProjectCardProps {
     project: Project;
 }
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
+    const { t } = useTranslation();
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -24,7 +27,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                     rel="noopener noreferrer"
                     className="block w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-500 cursor-pointer"
                     aria-label={`View ${project.title}`}
-                    tabIndex={-1} // Prevent double tab stops (card logic) - actually better to let it be focusable for keyboard users who want to just click the image
+                    tabIndex={-1}
                 >
                     {project.image ? (
                         <img
@@ -38,7 +41,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                         />
                     ) : (
                         <div className="w-full h-full flex items-center justify-center text-gray-400 dark:text-gray-600 bg-gray-50 dark:bg-gray-800/50">
-                            No Preview
+                            {t('projects.noPreview')}
                         </div>
                     )}
                 </a>

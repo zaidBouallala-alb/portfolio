@@ -366,7 +366,9 @@ export const MoroccanBackground: React.FC<MoroccanBackgroundProps> = ({
         window.addEventListener('resize', resizeCanvas);
 
         const themeObserver = new MutationObserver(() => {
-            shapesRef.current.forEach(shape => {
+            const shapes = shapesRef.current;
+            if (!shapes || !Array.isArray(shapes)) return;
+            shapes.forEach(shape => {
                 if (shape.isAmbient) shape.color = getRandomColor();
             });
         });

@@ -1,11 +1,18 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import ThemeToggle from './ThemeToggle';
 import { siteConfig } from '../data/site';
 
 const Nav = () => {
+    const { t, i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const isFrench = i18n.language.startsWith('fr');
+
+    const toggleLanguage = () => {
+        i18n.changeLanguage(isFrench ? 'en' : 'fr');
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -44,7 +51,7 @@ const Nav = () => {
                                     href={link.href}
                                     className="px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950 cursor-pointer"
                                 >
-                                    {link.name}
+                                    {t(link.name)}
                                 </a>
                             ))}
                         </div>
@@ -58,12 +65,30 @@ const Nav = () => {
                             >
                                 <Github size={20} />
                             </a>
+                            {/* Language Toggle */}
+                            <button
+                                onClick={toggleLanguage}
+                                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer uppercase tracking-wider"
+                                aria-label="Toggle Language"
+                            >
+                                <Globe size={16} />
+                                {i18n.language === 'fr' ? 'EN' : 'FR'}
+                            </button>
                             <ThemeToggle />
                         </div>
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <div className="flex items-center md:hidden gap-4">
+                    <div className="flex items-center md:hidden gap-3">
+                        {/* Mobile Language Toggle */}
+                        <button
+                            onClick={toggleLanguage}
+                            className="inline-flex items-center gap-1 px-2 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-all active:scale-95 cursor-pointer uppercase tracking-wider"
+                            aria-label="Toggle Language"
+                        >
+                            <Globe size={14} />
+                            {i18n.language === 'fr' ? 'EN' : 'FR'}
+                        </button>
                         <ThemeToggle />
                         <button
                             onClick={() => setIsOpen(!isOpen)}
@@ -88,7 +113,7 @@ const Nav = () => {
                                 className="block px-4 py-4 rounded-xl text-lg font-medium text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all border border-transparent hover:border-gray-100 dark:hover:border-gray-800"
                                 onClick={() => setIsOpen(false)}
                             >
-                                {link.name}
+                                {t(link.name)}
                             </a>
                         ))}
                         <div className="pt-6 mt-6 border-t border-gray-100 dark:border-gray-800 flex items-center justify-center gap-8">
