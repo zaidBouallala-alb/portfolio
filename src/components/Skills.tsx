@@ -1,5 +1,6 @@
 import { Database, Layout, Wrench, Server } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { skillsData } from '../data/skills';
 
 // Helper to get icon
@@ -32,6 +33,8 @@ const itemVariants = {
 };
 
 const Skills = () => {
+    const { t } = useTranslation();
+
     return (
         <section id="skills" className="py-16 md:py-24 transition-colors duration-300 relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,17 +46,13 @@ const Skills = () => {
                     className="text-center mb-12 md:mb-16"
                 >
                     <span className="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2 block">
-                        Expertise
+                        {t('skills.label')}
                     </span>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)] mb-4">
-                        Technical Skills
+                        {t('skills.title')}
                     </h2>
                     <p className="text-base md:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto font-medium">
-                        As a Full Stack Developer in Morocco, I work with modern frontend and backend technologies
-                        to build scalable, secure, and high-performance web applications.
-                        My technical stack includes React, TypeScript, Laravel, Node.js, and database systems such as MySQL and MongoDB.
-                        I specialize in developing responsive user interfaces, RESTful APIs, and scalable web architectures.
-
+                        {t('skills.description')}
                     </p>
                 </motion.div>
 
@@ -66,6 +65,7 @@ const Skills = () => {
                 >
                     {skillsData.map((category) => {
                         const Icon = getIcon(category.title);
+                        const translatedTitle = t(`skills.categories.${category.title}`, { defaultValue: category.title });
                         return (
                             <motion.div
                                 key={category.title}
@@ -77,7 +77,7 @@ const Skills = () => {
                                     <Icon className="w-6 h-6" />
                                 </div>
                                 <h3 className="text-lg font-bold text-[var(--text-primary)] mb-4">
-                                    {category.title}
+                                    {translatedTitle}
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
                                     {category.skills.map((skill) => (
