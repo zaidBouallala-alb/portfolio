@@ -12,14 +12,14 @@ export const education: EducationItem[] = [
         id: 1,
         year: "2025 – 2026",
         title: "Diploma in Full Stack Web Development",
-        institution: "ISTA",
+        institution: "ISTA / OFPPT",
         description: "Built full-stack web applications with React.js, Laravel, Express.js, and RESTful APIs."
     },
     {
         id: 2,
         year: "2024 – 2025",
-        title: "Diploma in Digital Development",
-        institution: "ISTA",
+        title: "First Year in Digital Development",
+        institution: "ISTA / OFPPT",
         description: "Developed dynamic web applications using JavaScript, PHP, HTML, and CSS."
     },
     {
