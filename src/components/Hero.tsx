@@ -71,12 +71,12 @@ const Hero = () => {
   );
   const typedRole = useTyping(roles, i18n.language);
 
-  /* fade-in variants */
-  const fadeUp = (delay = 0) => ({
+  /* fade-in variants (stable ref — no deps) */
+  const fadeUp = useMemo(() => (delay = 0) => ({
     initial: { opacity: 0, y: 28 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
-  });
+  }), []);
 
   return (
     <section
@@ -371,7 +371,7 @@ const Hero = () => {
                 transition={{ delay: 0.55, duration: 0.5 }}
                 className="absolute -top-4 -left-4 lg:-left-8
                   flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl z-20
-                  bg-[var(--bg-primary)]/90 backdrop-blur-xl
+                  bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl
                   border border-[var(--border-primary)]
                   shadow-xl shadow-black/10"
               >
@@ -391,7 +391,7 @@ const Hero = () => {
                 transition={{ delay: 0.65, duration: 0.5 }}
                 className="absolute -bottom-4 -right-4 lg:-right-8
                   flex items-center gap-3 px-4 py-3 rounded-2xl z-20
-                  bg-[var(--bg-primary)]/90 backdrop-blur-xl
+                  bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl
                   border border-[var(--border-primary)]
                   shadow-xl shadow-black/10"
               >
@@ -412,7 +412,7 @@ const Hero = () => {
                 transition={{ delay: 0.75, duration: 0.5 }}
                 className="absolute top-1/2 -translate-y-1/2 -right-3 lg:-right-6
                   flex flex-col items-center gap-1 px-2.5 py-2.5 rounded-2xl z-20
-                  bg-[var(--bg-primary)]/90 backdrop-blur-xl
+                  bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl
                   border border-[var(--border-primary)]
                   shadow-xl shadow-black/10"
               >
