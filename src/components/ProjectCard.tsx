@@ -30,15 +30,28 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                     tabIndex={-1}
                 >
                     {project.image ? (
-                        <img
-                            src={project.image}
-                            alt={`${project.title} — project by Zaid Bouallala`}
-                            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out will-change-transform"
-                            loading="lazy"
-                            decoding="async"
-                            width={600}
-                            height={338}
-                        />
+                        <>
+                            <img
+                                src={project.image}
+                                alt={`${project.title} — project by Zaid Bouallala`}
+                                className="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-700 ease-in-out will-change-transform"
+                                loading="lazy"
+                                decoding="async"
+                                width={600}
+                                height={338}
+                            />
+                            {project.demo && (
+                                <img
+                                    src={project.demo}
+                                    alt={`${project.title} demo`}
+                                    className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500 ease-in-out will-change-transform opacity-100 md:opacity-0 md:group-hover:opacity-100"
+                                    loading="lazy"
+                                    decoding="async"
+                                    width={600}
+                                    height={338}
+                                />
+                            )}
+                        </>
                     ) : (
                         <div className="w-full h-full flex items-center justify-center text-gray-400 dark:text-gray-600 bg-gray-50 dark:bg-gray-800/50">
                             {t('projects.noPreview')}
