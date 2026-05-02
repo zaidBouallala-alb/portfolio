@@ -6,6 +6,7 @@ export interface Project {
     githubUrl: string;
     liveUrl?: string; // Optional
     image: string;
+    demo?: string;
     featured?: boolean;
 }
 
@@ -18,6 +19,7 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/zaidBouallala/ofppt-cours",
         liveUrl: undefined,
         image: "https://placehold.co/800x450/1e293b/cbd5e1?text=OFPPT+Platform",
+        demo: "/ofppt-demo.png",
         featured: true,
     },
     {
@@ -28,6 +30,7 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/zaidBouallala/weather-app",
         liveUrl: undefined,
         image: "https://placehold.co/800x450/1e293b/cbd5e1?text=Weather+App",
+        demo: "/weather-demo.png",
     },
     {
         id: 3,
@@ -37,5 +40,16 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/zaidBouallala/school-management-system",
         liveUrl: undefined,
         image: "https://placehold.co/800x450/1e293b/cbd5e1?text=School+Management",
+        demo: "/school-demo.png",
+    },
+    {
+        id: 4,
+        title: "Job Application Tracker",
+        description: "A full-stack MERN application to track and manage job applications. Features user authentication, job CRUD, status tracking, dashboard, and search.",
+        tech: ["MERN Stack", "React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
+        githubUrl: "https://github.com/zaidBouallala/Job-Application-Tracker",
+        liveUrl: undefined,
+        image: "https://placehold.co/800x450/1e293b/cbd5e1?text=Job+Tracker",
+        demo: "/job-tracker-demo.png",
     }
 ];
