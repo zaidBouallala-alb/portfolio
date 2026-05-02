@@ -15,7 +15,7 @@ export const projects: Project[] = [
         title: "OFPPT Learning Resources Platform",
         description: "A React-based educational platform inspired by OFPPT course systems to organize and share learning materials for students.",
         tech: ["React", "JavaScript", "CSS", "Vite"],
-        githubUrl: "https://github.com/zaidBouallala/reactApp",
+        githubUrl: "https://github.com/zaidBouallala/ofppt-cours",
         liveUrl: undefined,
         image: "https://placehold.co/800x450/1e293b/cbd5e1?text=OFPPT+Platform",
         featured: true,
