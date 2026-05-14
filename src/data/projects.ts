@@ -3,7 +3,7 @@ export interface Project {
     title: string;
     description: string;
     tech: string[];
-    githubUrl: string;
+    githubUrl?: string; // Optional
     liveUrl?: string; // Optional
     image: string;
     demo?: string;
@@ -16,8 +16,7 @@ export const projects: Project[] = [
         title: "OFPPT Learning Resources Platform",
         description: "A React-based educational platform inspired by OFPPT course systems to organize and share learning materials for students.",
         tech: ["React", "JavaScript", "CSS", "Vite"],
-        githubUrl: "https://github.com/zaidBouallala/ofppt-cours",
-        liveUrl: undefined,
+        liveUrl: "https://ofppt-cours.vercel.app/",
         image: "https://placehold.co/800x450/1e293b/cbd5e1?text=OFPPT+Platform",
         demo: "/ofppt-demo.png",
         featured: true,
@@ -27,8 +26,7 @@ export const projects: Project[] = [
         title: "Weather Forecast App",
         description: "A responsive weather application that fetches real-time weather data from an external API and displays forecasts.",
         tech: ["React", "JavaScript", "Weather API", "CSS"],
-        githubUrl: "https://github.com/zaidBouallala/weather-app",
-        liveUrl: undefined,
+        liveUrl: "https://weather-app-nu-gold-51.vercel.app/",
         image: "https://placehold.co/800x450/1e293b/cbd5e1?text=Weather+App",
         demo: "/weather-demo.png",
     },
