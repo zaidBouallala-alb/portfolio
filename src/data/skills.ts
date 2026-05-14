@@ -29,7 +29,8 @@ export const skillsData: SkillCategory[] = [
         title: "Databases",
         skills: [
             "MySQL",
-            "MongoDB"
+            "MongoDB",
+            "PostgreSQL"
         ],
     },
     {
