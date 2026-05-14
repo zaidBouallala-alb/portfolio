@@ -61,15 +61,17 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
                 {/* Desktop Overlay - stronger contrast */}
                 <div className="hidden md:flex absolute inset-0 bg-gray-900/60 opacity-0 group-hover:opacity-100 transition-all duration-300 items-center justify-center gap-4 backdrop-blur-[2px] pointer-events-none group-hover:pointer-events-auto">
-                    <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3.5 bg-white text-gray-900 rounded-full hover:scale-110 transition-transform shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 cursor-pointer"
-                        aria-label={`View ${project.title} code on GitHub`}
-                    >
-                        <Github size={22} />
-                    </a>
+                    {project.githubUrl && (
+                        <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3.5 bg-white text-gray-900 rounded-full hover:scale-110 transition-transform shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 cursor-pointer"
+                            aria-label={`View ${project.title} code on GitHub`}
+                        >
+                            <Github size={22} />
+                        </a>
+                    )}
                     {project.liveUrl && (
                         <a
                             href={project.liveUrl}
@@ -101,15 +103,17 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
                         {/* Mobile Actions - Clearer buttons */}
                         <div className="flex md:hidden gap-3 shrink-0">
-                            <a
-                                href={project.githubUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white bg-gray-100 dark:bg-gray-800 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer"
-                                aria-label="GitHub"
-                            >
-                                <Github size={20} />
-                            </a>
+                            {project.githubUrl && (
+                                <a
+                                    href={project.githubUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white bg-gray-100 dark:bg-gray-800 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer"
+                                    aria-label="GitHub"
+                                >
+                                    <Github size={20} />
+                                </a>
+                            )}
                             {project.liveUrl && (
                                 <a
                                     href={project.liveUrl}
