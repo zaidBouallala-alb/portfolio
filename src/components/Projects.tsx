@@ -20,7 +20,22 @@ const Projects = () => {
 
     const filteredProjects = activeCategory === "All"
         ? projects
-        : projects.filter(p => p.tech.some(tech => tech.includes(activeCategory) || (activeCategory === "Backend" && (tech.includes("PHP") || tech.includes("Laravel")))));
+        : projects.filter(p => {
+            const techStr = p.tech.join(" ").toLowerCase();
+            const isFullStack = techStr.includes("full stack") || techStr.includes("mern");
+            const hasBackend = techStr.includes("node") || techStr.includes("laravel") || techStr.includes("mysql") || techStr.includes("mongodb") || techStr.includes("php");
+            
+            if (activeCategory === "Frontend") {
+                return !isFullStack && !hasBackend;
+            }
+            if (activeCategory === "Backend") {
+                return hasBackend;
+            }
+            if (activeCategory === "Full Stack") {
+                return isFullStack;
+            }
+            return false;
+        });
 
     return (
         <section id="projects" className="py-16 md:py-24 transition-colors duration-300 relative z-10">
