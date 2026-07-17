@@ -10,7 +10,7 @@ export const siteConfig = {
         whatsapp: "https://wa.me/212602819259",
     },
     cv: {
-        english: "https://drive.google.com/file/d/1YCq7r7ihc1cppGMTDrXQFLWAmutPq0uX/view?usp=sharing",
+        english: "https://drive.google.com/file/d/1SKD_bKN4yPMXRJx-VBB8ffIGMwCAQNm_/view?usp=sharing",
         french: "https://drive.google.com/file/d/1SIeIVcWgI2OtCFQ6d1gOkPmWgh72RYQs/view?usp=sharing"
     },
     resume: "/resume.pdf", // Path to resume in public folder
