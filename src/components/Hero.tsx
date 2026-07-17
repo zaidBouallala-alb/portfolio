@@ -1,5 +1,5 @@
-import { Download, Github, Mail, ChevronDown, ArrowRight, ExternalLink, MessageCircle, Linkedin, Layers, MapPin } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Download, Github, Mail, ChevronDown, ArrowRight, MessageCircle, Linkedin, Layers, MapPin } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useState, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import profileImage from '../assets/profile.jpg';
@@ -63,7 +63,7 @@ function useTyping(words: string[], langKey: string, speed = 80, pause = 1800) {
 /* ═══════════════════════════════════════════════════════════════════ */
 const Hero = () => {
   const { t, i18n } = useTranslation();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   const roles = useMemo(
     () => t('hero.roles', { returnObjects: true }) as string[],
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -214,95 +214,34 @@ const Hero = () => {
                 {t('hero.contactMe')}
               </motion.a>
 
-              {/* Mobile: two CV buttons */}
-              <div className="flex md:hidden gap-2 w-full">
-                <a
-                  href={siteConfig.cv.english}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-3
-                    text-sm font-semibold rounded-xl border
-                    text-[var(--text-primary)] border-[var(--border-primary)]
-                    bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)]
-                    transition-all active:scale-95"
-                >
-                  <Download className="w-4 h-4" />
-                  {t('hero.enCv')}
-                </a>
-                <a
-                  href={siteConfig.cv.french}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-3
-                    text-sm font-semibold rounded-xl border
-                    text-[var(--text-primary)] border-[var(--border-primary)]
-                    bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)]
-                    transition-all active:scale-95"
-                >
-                  <Download className="w-4 h-4" />
-                  {t('hero.frCv')}
-                </a>
-              </div>
-
-              {/* Desktop CV dropdown */}
-              <div className="hidden md:block relative z-50">
-                <motion.div
-                  onHoverStart={() => setDropdownOpen(true)}
-                  onHoverEnd={() => setDropdownOpen(false)}
-                  className="relative"
-                >
-                  <motion.button
+              {/* CV — language-aware single button */}
+              {(() => {
+                const cvMap: Record<string, string> = {
+                  en: siteConfig.cv.english,
+                  fr: siteConfig.cv.french,
+                  es: siteConfig.cv.spanish,
+                };
+                const lang = i18n.language.substring(0, 2);
+                const cvUrl = cvMap[lang] || siteConfig.cv.english;
+                return cvUrl ? (
+                  <motion.a
+                    href={cvUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    className="inline-flex items-center gap-2 px-6 py-3.5
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5
                       font-bold text-base rounded-xl border
                       text-[var(--text-primary)] border-[var(--border-secondary)]
                       bg-[var(--bg-primary)] hover:bg-[var(--bg-secondary)]
-                      transition-all duration-200 shadow-sm cursor-default"
+                      dark:hover:border-gray-600
+                      transition-all duration-200 shadow-sm"
                   >
                     <Download className="w-4 h-4" />
                     {t('hero.downloadCv')}
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
-                  </motion.button>
-                  <AnimatePresence>
-                    {dropdownOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                        transition={{ duration: 0.18 }}
-                        className="absolute top-full left-0 mt-2 w-full min-w-[160px]
-                          bg-[var(--bg-primary)] border border-[var(--border-primary)]
-                          rounded-xl shadow-2xl overflow-hidden ring-1 ring-black/5"
-                      >
-                        <a
-                          href={siteConfig.cv.english}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-3 px-4 py-3 text-sm font-medium
-                            text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]
-                            hover:text-[var(--text-primary)] transition-colors"
-                        >
-                          <span className="text-base">🇬🇧</span> {t('hero.englishCv')}
-                          <ExternalLink className="w-3 h-3 ml-auto opacity-50" />
-                        </a>
-                        <div className="h-px bg-[var(--border-primary)] mx-2" />
-                        <a
-                          href={siteConfig.cv.french}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-3 px-4 py-3 text-sm font-medium
-                            text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]
-                            hover:text-[var(--text-primary)] transition-colors"
-                        >
-                          <span className="text-base">🇫🇷</span> {t('hero.frenchCv')}
-                          <ExternalLink className="w-3 h-3 ml-auto opacity-50" />
-                        </a>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              </div>
+                  </motion.a>
+                ) : null;
+              })()}
             </motion.div>
 
             {/* ── Social links ──────────────────────────────────────── */}
