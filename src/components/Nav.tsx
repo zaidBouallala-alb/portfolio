@@ -1,17 +1,28 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail, Globe } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Menu, X, Github, Linkedin, Mail, Globe, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
 import { siteConfig } from '../data/site';
+
+const LANGUAGES = [
+    { code: 'en', label: 'English', flag: '🇬🇧' },
+    { code: 'fr', label: 'Français', flag: '🇫🇷' },
+    { code: 'es', label: 'Español', flag: '🇪🇸' },
+];
 
 const Nav = () => {
     const { t, i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const isFrench = i18n.language.startsWith('fr');
+    const [langOpen, setLangOpen] = useState(false);
+    const desktopLangRef = useRef<HTMLDivElement>(null);
+    const mobileLangRef = useRef<HTMLDivElement>(null);
+    const currentLang = i18n.language.substring(0, 2);
 
-    const toggleLanguage = () => {
-        i18n.changeLanguage(isFrench ? 'en' : 'fr');
+    const changeLanguage = (code: string) => {
+        i18n.changeLanguage(code);
+        setLangOpen(false);
     };
 
     useEffect(() => {
@@ -22,7 +33,23 @@ const Nav = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Close language dropdown on outside click
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            const target = e.target as Node;
+            const clickedOutsideDesktop = !desktopLangRef.current || !desktopLangRef.current.contains(target);
+            const clickedOutsideMobile = !mobileLangRef.current || !mobileLangRef.current.contains(target);
+            if (clickedOutsideDesktop && clickedOutsideMobile) {
+                setLangOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
     const navLinks = siteConfig.navLinks;
+
+    const currentLangObj = LANGUAGES.find(l => l.code === currentLang) || LANGUAGES[0];
 
     return (
         <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
@@ -65,30 +92,93 @@ const Nav = () => {
                             >
                                 <Github size={20} />
                             </a>
-                            {/* Language Toggle */}
-                            <button
-                                onClick={toggleLanguage}
-                                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer uppercase tracking-wider"
-                                aria-label="Toggle Language"
-                            >
-                                <Globe size={16} />
-                                {i18n.language === 'fr' ? 'EN' : 'FR'}
-                            </button>
+                            {/* Language Dropdown */}
+                            <div ref={desktopLangRef} className="relative">
+                                <button
+                                    onClick={() => setLangOpen(!langOpen)}
+                                    className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer uppercase tracking-wider"
+                                    aria-label="Change Language"
+                                    aria-expanded={langOpen}
+                                >
+                                    <Globe size={16} />
+                                    {currentLang.toUpperCase()}
+                                    <ChevronDown size={12} className={`transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
+                                </button>
+                                <AnimatePresence>
+                                    {langOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 6, scale: 0.96 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                                            transition={{ duration: 0.15 }}
+                                            className="absolute top-full right-0 mt-2 w-40
+                                                bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800
+                                                rounded-xl shadow-2xl overflow-hidden ring-1 ring-black/5 z-50"
+                                        >
+                                            {LANGUAGES.map((lang) => (
+                                                <button
+                                                    key={lang.code}
+                                                    onClick={() => changeLanguage(lang.code)}
+                                                    className={`flex items-center gap-3 w-full px-4 py-2.5 text-sm font-medium transition-colors cursor-pointer
+                                                        ${currentLang === lang.code
+                                                            ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50'
+                                                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-gray-900 dark:hover:text-white'
+                                                        }`}
+                                                >
+                                                    <span className="text-base">{lang.flag}</span>
+                                                    {lang.label}
+                                                </button>
+                                            ))}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
                             <ThemeToggle />
                         </div>
                     </div>
 
                     {/* Mobile Menu Button */}
                     <div className="flex items-center md:hidden gap-3">
-                        {/* Mobile Language Toggle */}
-                        <button
-                            onClick={toggleLanguage}
-                            className="inline-flex items-center gap-1 px-2 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-all active:scale-95 cursor-pointer uppercase tracking-wider"
-                            aria-label="Toggle Language"
-                        >
-                            <Globe size={14} />
-                            {i18n.language === 'fr' ? 'EN' : 'FR'}
-                        </button>
+                        {/* Mobile Language Dropdown */}
+                        <div ref={mobileLangRef} className="relative">
+                            <button
+                                onClick={() => setLangOpen(!langOpen)}
+                                className="inline-flex items-center gap-1 px-2 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-all active:scale-95 cursor-pointer uppercase tracking-wider"
+                                aria-label="Change Language"
+                                aria-expanded={langOpen}
+                            >
+                                <Globe size={14} />
+                                {currentLang.toUpperCase()}
+                            </button>
+                            <AnimatePresence>
+                                {langOpen && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 6, scale: 0.96 }}
+                                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                                        exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                                        transition={{ duration: 0.15 }}
+                                        className="absolute top-full right-0 mt-2 w-40
+                                            bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800
+                                            rounded-xl shadow-2xl overflow-hidden ring-1 ring-black/5 z-50"
+                                    >
+                                        {LANGUAGES.map((lang) => (
+                                            <button
+                                                key={lang.code}
+                                                onClick={() => changeLanguage(lang.code)}
+                                                className={`flex items-center gap-3 w-full px-4 py-2.5 text-sm font-medium transition-colors cursor-pointer
+                                                    ${currentLang === lang.code
+                                                        ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50'
+                                                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-gray-900 dark:hover:text-white'
+                                                    }`}
+                                            >
+                                                <span className="text-base">{lang.flag}</span>
+                                                {lang.label}
+                                            </button>
+                                        ))}
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
                         <ThemeToggle />
                         <button
                             onClick={() => setIsOpen(!isOpen)}
@@ -135,3 +225,4 @@ const Nav = () => {
 };
 
 export default Nav;
+
