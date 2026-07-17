@@ -11,7 +11,8 @@ export const siteConfig = {
     },
     cv: {
         english: "https://drive.google.com/file/d/1SKD_bKN4yPMXRJx-VBB8ffIGMwCAQNm_/view?usp=sharing",
-        french: "https://drive.google.com/file/d/1SIeIVcWgI2OtCFQ6d1gOkPmWgh72RYQs/view?usp=sharing"
+        french: "https://drive.google.com/file/d/1SIeIVcWgI2OtCFQ6d1gOkPmWgh72RYQs/view?usp=sharing",
+        spanish: "https://drive.google.com/file/d/1M1hfUCLjz1FTvP_aA20TV0UgN7KS_JJH/view?usp=sharing",// TODO: Add your Spanish CV Google Drive link here
     },
     resume: "/resume.pdf", // Path to resume in public folder
     bio: "https://github.com/zaidBouallala", // Link for "All Links" or similar
