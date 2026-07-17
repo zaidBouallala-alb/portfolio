@@ -1,0 +1,123 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "status": "Abierto a oportunidades · Remoto y presencial",
+    "headline1": "Convierto ideas en",
+    "headlineHighlight": "escalables",
+    "headline2": "productos web.",
+    "intro": "Hola, soy",
+    "name": "Zaid Bouallala",
+    "introText": "— un desarrollador full stack de Marruecos que crea productos que",
+    "introHighlight": "funcionan rápido, escalan limpiamente y lucen genial.",
+    "introEnd": "Desde interfaces pixel-perfect hasta APIs robustas.",
+    "viewWork": "Ver mi trabajo",
+    "contactMe": "Contáctame",
+    "downloadCv": "Descargar CV",
+    "scroll": "Desplazar",
+    "stack": "Stack",
+    "stackItems": "React · Laravel · Node",
+    "morocco": "Marruecos",
+    "fullStackDev": "Desarrollador Full Stack",
+    "roles": [
+      "Desarrollador Full Stack",
+      "Especialista en React",
+      "Desarrollador Laravel",
+      "Creador de Apps Web",
+      "Entusiasta UI/UX"
+    ]
+  },
+  "about": {
+    "label": "Mi Historia",
+    "title": "Sobre mí – Desarrollador Full Stack en Marruecos",
+    "p1": "Soy Zaid Bouallala, un desarrollador Full Stack con sede en Marruecos, especializado en React, Laravel y MySQL. Diseño y construyo aplicaciones web modernas y escalables que ofrecen un rendimiento rápido, interfaces de usuario limpias y una arquitectura backend fiable.",
+    "p2": "Como desarrollador web Full Stack con sede en Marruecos, ayudo a empresas, startups y particulares a crear sitios web profesionales y aplicaciones web personalizadas adaptadas a sus objetivos específicos. Mi experiencia incluye JavaScript, TypeScript, PHP, APIs RESTful y diseño de bases de datos con MySQL.",
+    "p3": "Me enfoco en escribir código limpio y mantenible, y en desarrollar aplicaciones web optimizadas para SEO y de alto rendimiento que brindan experiencias de usuario fluidas en todos los dispositivos. Ya sea un sitio portfolio, una plataforma empresarial o una solución web full-stack, mi objetivo es entregar productos digitales escalables e impactantes."
+  },
+  "skills": {
+    "label": "Experiencia",
+    "title": "Habilidades Técnicas",
+    "description": "Como desarrollador Full Stack en Marruecos, trabajo con tecnologías modernas de frontend y backend para crear aplicaciones web escalables, seguras y de alto rendimiento. Mi stack técnico incluye React, TypeScript, Laravel, Node.js y sistemas de bases de datos como MySQL y MongoDB. Me especializo en el desarrollo de interfaces de usuario responsivas, APIs RESTful y arquitecturas web escalables.",
+    "categories": {
+      "Frontend": "Frontend",
+      "Backend": "Backend",
+      "Databases": "Bases de datos",
+      "Tools & Principles": "Herramientas y Principios"
+    }
+  },
+  "education": {
+    "label": "Mi Trayectoria",
+    "title": "Educación y Formación",
+    "items": [
+      {
+        "title": "Diploma en Desarrollo Web Full Stack",
+        "institution": "ISTA / OFPPT",
+        "description": "Desarrollo de aplicaciones web full-stack con React.js, Laravel, Express.js y APIs RESTful."
+      },
+      {
+        "title": "Primer año en Desarrollo Digital",
+        "institution": "ISTA / OFPPT",
+        "description": "Desarrollo de aplicaciones web dinámicas con JavaScript, PHP, HTML y CSS."
+      },
+      {
+        "title": "Estudios universitarios en Economía y Gestión",
+        "institution": "Facultad de Ciencias Económicas",
+        "description": "Fortalecimiento del pensamiento analítico y los fundamentos empresariales."
+      },
+      {
+        "title": "Bachillerato en Ciencias Matemáticas",
+        "institution": "Instituto",
+        "description": "Construcción de una base sólida en matemáticas y resolución de problemas."
+      }
+    ]
+  },
+  "projects": {
+    "label": "Portafolio",
+    "title": "Trabajos Seleccionados",
+    "viewAll": "Ver todos los proyectos",
+    "noPreview": "Sin vista previa",
+    "filters": {
+      "All": "Todos",
+      "Frontend": "Frontend",
+      "Backend": "Backend",
+      "Full Stack": "Full Stack"
+    },
+    "items": [
+      {
+        "title": "Plataforma de Recursos OFPPT",
+        "description": "Una plataforma educativa basada en React, inspirada en los sistemas de cursos OFPPT para organizar y compartir materiales de aprendizaje para estudiantes."
+      },
+      {
+        "title": "Aplicación del Tiempo",
+        "description": "Una aplicación meteorológica responsiva que obtiene datos del tiempo en tiempo real desde una API externa y muestra pronósticos."
+      },
+      {
+        "title": "Sistema de Gestión Escolar",
+        "description": "Una aplicación full-stack de gestión escolar para administrar estudiantes, clases, horarios y recursos académicos."
+      }
+    ]
+  },
+  "contact": {
+    "label": "Contacto",
+    "title": "Contáctame",
+    "description": "Actualmente estoy abierto a nuevas oportunidades. Ya sea que tengas una pregunta o simplemente quieras saludar, ¡no dudes en contactarme!",
+    "emailMe": "Envíame un email",
+    "sendMessage": "Enviar mensaje",
+    "connectProfessionally": "Conectar profesionalmente",
+    "checkMyCode": "Ver mi código",
+    "quickChat": "Chat rápido",
+    "chatDirectly": "Chatear directamente",
+    "footer": "¡Espero tener noticias tuyas!"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
+  },
+  "theme": {
+    "switchToLight": "Cambiar a modo claro",
+    "switchToDark": "Cambiar a modo oscuro"
+  }
+}
