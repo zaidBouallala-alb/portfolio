@@ -2,9 +2,11 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { siteConfig } from '../data/site';
+import { useDir } from '../hooks/useDir';
 
 const Footer = () => {
     const { t } = useTranslation();
+    const { isRTL } = useDir();
 
     return (
         <motion.footer
@@ -12,10 +14,11 @@ const Footer = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            dir={isRTL ? 'rtl' : 'ltr'}
             className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-t border-[var(--border-primary)] py-12 transition-colors duration-300 relative z-10"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-                <div className="flex flex-col items-center md:items-start gap-2">
+                <div className={`flex flex-col items-center gap-2 ${isRTL ? 'md:items-end' : 'md:items-start'}`}>
                     <span className="text-lg font-bold text-[var(--text-primary)] tracking-tight">
                         {siteConfig.name}
                     </span>

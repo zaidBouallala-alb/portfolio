@@ -1,9 +1,10 @@
-import { Download, Github, Mail, ChevronDown, ArrowRight, MessageCircle, Linkedin, Layers, MapPin } from 'lucide-react';
+import { Download, Github, Mail, ChevronDown, ArrowRight, ArrowLeft, MessageCircle, Linkedin, Layers, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import profileImage from '../assets/profile.jpg';
 import { siteConfig } from '../data/site';
+import { useDir } from '../hooks/useDir';
 
 /* ─── Tech stack badges ───────────────────────────────────────────── */
 const STACK = [
@@ -63,6 +64,7 @@ function useTyping(words: string[], langKey: string, speed = 80, pause = 1800) {
 /* ═══════════════════════════════════════════════════════════════════ */
 const Hero = () => {
   const { t, i18n } = useTranslation();
+  const { isRTL } = useDir();
 
   const roles = useMemo(
     () => t('hero.roles', { returnObjects: true }) as string[],
@@ -78,9 +80,12 @@ const Hero = () => {
     transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
   }), []);
 
+  const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
+
   return (
     <section
       id="hero"
+      dir={isRTL ? 'rtl' : 'ltr'}
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24"
     >
       {/* ── Multi-layer background ─────────────────────────────────── */}
@@ -94,19 +99,19 @@ const Hero = () => {
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--border-primary)] to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-14 lg:gap-8">
+        <div className="flex flex-col-reverse lg:flex-row gap-14 lg:gap-8 items-center justify-between">
 
-          {/* ════════ LEFT — Text ════════════════════════════════════ */}
-          <div className="w-full lg:w-[52%] text-center lg:text-left space-y-7">
+          {/* ════════ Text side ════════════════════════════════════ */}
+          <div className={`w-full lg:w-[52%] space-y-7 text-center ${isRTL ? 'lg:text-right' : 'lg:text-left'}`}>
 
             {/* ── Status pill ───────────────────────────────────────── */}
-            <motion.div {...fadeUp(0)} className="inline-flex">
+            <motion.div {...fadeUp(0)} className={`inline-flex ${isRTL ? 'justify-end w-full lg:justify-end' : ''}`}>
               <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full
                 bg-emerald-50 dark:bg-emerald-950/60
                 border border-emerald-200 dark:border-emerald-800/60
                 text-emerald-700 dark:text-emerald-400 text-sm font-semibold
                 shadow-sm shadow-emerald-100 dark:shadow-emerald-950/40">
-                <span className="relative flex h-2 w-2">
+                <span className="relative flex h-2 w-2 flex-shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                 </span>
@@ -116,7 +121,7 @@ const Hero = () => {
 
             {/* ── Headline ──────────────────────────────────────────── */}
             <motion.div {...fadeUp(0.1)} className="space-y-3">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold tracking-tight leading-[1.1] text-[var(--text-primary)]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold tracking-tight leading-[1.2] text-[var(--text-primary)]">
                 {t('hero.headline1')}{' '}
                 <span className="relative inline-block">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-400 dark:from-indigo-400 dark:via-blue-400 dark:to-cyan-300">
@@ -134,7 +139,7 @@ const Hero = () => {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-500 dark:from-blue-400 dark:to-violet-400">
                   {typedRole}
                 </span>
-                <span className="inline-block w-0.5 h-6 bg-blue-500 ml-0.5 align-middle animate-[blink_1s_step-end_infinite]" />
+                <span className="inline-block w-0.5 h-6 bg-blue-500 mx-0.5 align-middle animate-[blink_1s_step-end_infinite]" />
               </p>
             </motion.div>
 
@@ -153,7 +158,7 @@ const Hero = () => {
             {/* ── Tech stack badges ─────────────────────────────────── */}
             <motion.div
               {...fadeUp(0.25)}
-              className="flex flex-wrap gap-2 justify-center lg:justify-start"
+              className={`flex flex-wrap gap-2 justify-center ${isRTL ? 'lg:justify-end' : 'lg:justify-start'}`}
             >
               {STACK.map((tech, i) => (
                 <motion.span
@@ -180,7 +185,7 @@ const Hero = () => {
             {/* ── CTAs ──────────────────────────────────────────────── */}
             <motion.div
               {...fadeUp(0.3)}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 justify-center lg:justify-start"
+              className={`flex flex-col sm:flex-row items-stretch sm:items-center gap-3 justify-center ${isRTL ? 'lg:justify-end' : 'lg:justify-start'}`}
             >
               {/* Primary */}
               <motion.a
@@ -195,7 +200,7 @@ const Hero = () => {
                   transition-all duration-200"
               >
                 {t('hero.viewWork')}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowIcon className={`w-4 h-4 transition-transform ${isRTL ? 'group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
               </motion.a>
 
               {/* Secondary — Contact */}
@@ -220,6 +225,7 @@ const Hero = () => {
                   en: siteConfig.cv.english,
                   fr: siteConfig.cv.french,
                   es: siteConfig.cv.spanish,
+                  ar: siteConfig.cv.arabic,
                 };
                 const lang = i18n.language.substring(0, 2);
                 const cvUrl = cvMap[lang] || siteConfig.cv.english;
@@ -247,7 +253,7 @@ const Hero = () => {
             {/* ── Social links ──────────────────────────────────────── */}
             <motion.div
               {...fadeUp(0.38)}
-              className="flex items-center gap-1 justify-center lg:justify-start pt-1"
+              className={`flex items-center gap-1 justify-center pt-1 ${isRTL ? 'lg:justify-end' : 'lg:justify-start'}`}
             >
               {[
                 { href: siteConfig.social.github,    Icon: Github,        label: 'GitHub',    hover: 'hover:text-[var(--text-primary)] hover:bg-[var(--bg-tertiary)]' },
@@ -271,9 +277,9 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* ════════ RIGHT — Image ══════════════════════════════════ */}
+          {/* ════════ Image side ══════════════════════════════════════ */}
           <motion.div
-            initial={{ opacity: 0, x: 30, scale: 0.96 }}
+            initial={{ opacity: 0, x: isRTL ? -30 : 30, scale: 0.96 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="w-full lg:w-[44%] flex justify-center lg:justify-end"
@@ -303,16 +309,16 @@ const Hero = () => {
                 <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
 
-              {/* ── Floating badge — top-left ──────────────────────── */}
+              {/* ── Floating badge — top (stack) ──────────────────────── */}
               <motion.div
                 initial={{ opacity: 0, y: -16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.55, duration: 0.5 }}
-                className="absolute -top-4 -left-4 lg:-left-8
+                className={`absolute -top-4 ${isRTL ? '-right-4 lg:-right-8' : '-left-4 lg:-left-8'}
                   flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl z-20
                   bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl
                   border border-[var(--border-primary)]
-                  shadow-xl shadow-black/10"
+                  shadow-xl shadow-black/10`}
               >
                 <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-gradient-to-br from-indigo-600 to-blue-600 shadow-md shadow-indigo-500/30">
                   <Layers className="w-4 h-4 text-white" />
@@ -323,16 +329,16 @@ const Hero = () => {
                 </div>
               </motion.div>
 
-              {/* ── Floating badge — bottom-right ─────────────────── */}
+              {/* ── Floating badge — bottom (name) ─────────────────── */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.65, duration: 0.5 }}
-                className="absolute -bottom-4 -right-4 lg:-right-8
+                className={`absolute -bottom-4 ${isRTL ? '-left-4 lg:-left-8' : '-right-4 lg:-right-8'}
                   flex items-center gap-3 px-4 py-3 rounded-2xl z-20
                   bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl
                   border border-[var(--border-primary)]
-                  shadow-xl shadow-black/10"
+                  shadow-xl shadow-black/10`}
               >
                 <div className="w-9 h-9 flex items-center justify-center rounded-xl
                   bg-gradient-to-br from-indigo-600 to-blue-600 shadow-md shadow-indigo-500/30">
@@ -344,16 +350,16 @@ const Hero = () => {
                 </div>
               </motion.div>
 
-              {/* ── Floating badge — right-center ────────────────── */}
+              {/* ── Floating badge — side center (location) ──────── */}
               <motion.div
-                initial={{ opacity: 0, x: 16 }}
+                initial={{ opacity: 0, x: isRTL ? -16 : 16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.75, duration: 0.5 }}
-                className="absolute top-1/2 -translate-y-1/2 -right-3 lg:-right-6
+                className={`absolute top-1/2 -translate-y-1/2 ${isRTL ? '-left-3 lg:-left-6' : '-right-3 lg:-right-6'}
                   flex flex-col items-center gap-1 px-2.5 py-2.5 rounded-2xl z-20
                   bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl
                   border border-[var(--border-primary)]
-                  shadow-xl shadow-black/10"
+                  shadow-xl shadow-black/10`}
               >
                 <MapPin className="w-4 h-4 text-rose-500" />
                 <span className="text-[9px] font-bold text-[var(--text-tertiary)] uppercase tracking-wider leading-none">
