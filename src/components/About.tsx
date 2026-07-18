@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { useDir } from '../hooks/useDir';
 
 const About = () => {
     const { t } = useTranslation();
+    const { isRTL } = useDir();
 
     return (
-        <section id="about" className="py-16 md:py-20 transition-colors duration-300 relative z-10">
+        <section id="about" dir={isRTL ? 'rtl' : 'ltr'} className="py-16 md:py-20 transition-colors duration-300 relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -21,7 +23,7 @@ const About = () => {
                         {t('about.title')}
                     </h2>
 
-                    <div className="space-y-4 md:space-y-6 text-base md:text-lg text-[var(--text-secondary)] leading-relaxed font-medium">
+                    <div className="space-y-4 md:space-y-6 text-base md:text-lg text-[var(--text-secondary)] leading-relaxed font-medium text-right" style={{ textAlign: isRTL ? 'right' : 'center' }}>
                         <p>{t('about.p1')}</p>
                         <p>{t('about.p2')}</p>
                         <p>{t('about.p3')}</p>
