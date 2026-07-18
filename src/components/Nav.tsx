@@ -4,15 +4,18 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
 import { siteConfig } from '../data/site';
+import { useDir } from '../hooks/useDir';
 
 const LANGUAGES = [
     { code: 'en', label: 'English', flag: '🇬🇧' },
     { code: 'fr', label: 'Français', flag: '🇫🇷' },
     { code: 'es', label: 'Español', flag: '🇪🇸' },
+    { code: 'ar', label: 'العربية', flag: '🇲🇦' },
 ];
 
 const Nav = () => {
     const { t, i18n } = useTranslation();
+    const { isRTL } = useDir();
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [langOpen, setLangOpen] = useState(false);
@@ -49,16 +52,17 @@ const Nav = () => {
 
     const navLinks = siteConfig.navLinks;
 
-    const currentLangObj = LANGUAGES.find(l => l.code === currentLang) || LANGUAGES[0];
+    // Dropdown opens on the correct side depending on RTL/LTR
+    const dropdownAlign = isRTL ? 'left-0' : 'right-0';
 
     return (
-        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
+        <nav dir={isRTL ? 'rtl' : 'ltr'} className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
             ? 'bg-white/95 dark:bg-gray-950/95 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-gray-800'
             : 'bg-white/50 dark:bg-gray-950/50 backdrop-blur-sm supports-[backdrop-filter]:bg-white/20'
             }`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16 sm:h-20">
-                    {/* Logo */}
+                    {/* Logo — always appears first in reading direction */}
                     <div className="flex-shrink-0 flex items-center">
                         <a
                             href="#"
@@ -70,8 +74,8 @@ const Nav = () => {
                     </div>
 
                     {/* Desktop Menu */}
-                    <div className="hidden md:flex items-center space-x-8">
-                        <div className="flex space-x-1">
+                    <div className="hidden md:flex items-center gap-8">
+                        <div className="flex items-center gap-1">
                             {navLinks.map((link) => (
                                 <a
                                     key={link.name}
@@ -82,7 +86,7 @@ const Nav = () => {
                                 </a>
                             ))}
                         </div>
-                        <div className="flex items-center gap-3 pl-4 border-l border-gray-200 dark:border-gray-800">
+                        <div className={`flex items-center gap-3 ${isRTL ? 'pr-4 border-r' : 'pl-4 border-l'} border-gray-200 dark:border-gray-800`}>
                             <a
                                 href={siteConfig.social.github}
                                 target="_blank"
@@ -111,9 +115,9 @@ const Nav = () => {
                                             animate={{ opacity: 1, y: 0, scale: 1 }}
                                             exit={{ opacity: 0, y: 6, scale: 0.96 }}
                                             transition={{ duration: 0.15 }}
-                                            className="absolute top-full right-0 mt-2 w-40
+                                            className={`absolute top-full ${dropdownAlign} mt-2 w-40
                                                 bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800
-                                                rounded-xl shadow-2xl overflow-hidden ring-1 ring-black/5 z-50"
+                                                rounded-xl shadow-2xl overflow-hidden ring-1 ring-black/5 z-50`}
                                         >
                                             {LANGUAGES.map((lang) => (
                                                 <button
@@ -157,9 +161,9 @@ const Nav = () => {
                                         animate={{ opacity: 1, y: 0, scale: 1 }}
                                         exit={{ opacity: 0, y: 6, scale: 0.96 }}
                                         transition={{ duration: 0.15 }}
-                                        className="absolute top-full right-0 mt-2 w-40
+                                        className={`absolute top-full ${dropdownAlign} mt-2 w-40
                                             bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800
-                                            rounded-xl shadow-2xl overflow-hidden ring-1 ring-black/5 z-50"
+                                            rounded-xl shadow-2xl overflow-hidden ring-1 ring-black/5 z-50`}
                                     >
                                         {LANGUAGES.map((lang) => (
                                             <button
@@ -200,7 +204,7 @@ const Nav = () => {
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className="block px-4 py-4 rounded-xl text-lg font-medium text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all border border-transparent hover:border-gray-100 dark:hover:border-gray-800"
+                                className={`block px-4 py-4 rounded-xl text-lg font-medium text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all border border-transparent hover:border-gray-100 dark:hover:border-gray-800 ${isRTL ? 'text-right' : 'text-left'}`}
                                 onClick={() => setIsOpen(false)}
                             >
                                 {t(link.name)}
@@ -225,4 +229,3 @@ const Nav = () => {
 };
 
 export default Nav;
-

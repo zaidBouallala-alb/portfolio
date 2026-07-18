@@ -2,6 +2,7 @@ import type { Project } from '../data/projects';
 import { Github, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { useDir } from '../hooks/useDir';
 
 interface ProjectCardProps {
     project: Project;
@@ -9,6 +10,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
     const { t } = useTranslation();
+    const { isRTL } = useDir();
 
     return (
         <motion.div
@@ -59,7 +61,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                     )}
                 </a>
 
-                {/* Desktop Overlay - stronger contrast */}
+                {/* Desktop Overlay */}
                 <div className="hidden md:flex absolute inset-0 bg-gray-900/60 opacity-0 group-hover:opacity-100 transition-all duration-300 items-center justify-center gap-4 backdrop-blur-[2px] pointer-events-none group-hover:pointer-events-auto">
                     {project.githubUrl && (
                         <a
@@ -90,7 +92,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             <div className="flex-1 flex flex-col p-6 sm:p-7">
                 <div className="mb-4">
                     <div className="flex justify-between items-start gap-4 mb-3">
-                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-50 leading-tight">
+                        <h3 className={`text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-50 leading-tight ${isRTL ? 'text-right' : 'text-left'}`}>
                             <a
                                 href={project.liveUrl || project.githubUrl}
                                 target="_blank"
@@ -101,7 +103,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                             </a>
                         </h3>
 
-                        {/* Mobile Actions - Clearer buttons */}
+                        {/* Mobile Actions */}
                         <div className="flex md:hidden gap-3 shrink-0">
                             {project.githubUrl && (
                                 <a
@@ -128,12 +130,12 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                         </div>
                     </div>
 
-                    <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed line-clamp-3 font-medium">
+                    <p className={`text-gray-600 dark:text-gray-400 text-base leading-relaxed line-clamp-3 font-medium ${isRTL ? 'text-right' : 'text-left'}`}>
                         {project.description}
                     </p>
                 </div>
 
-                <div className="mt-auto flex flex-wrap gap-2 pt-5 border-t border-gray-100 dark:border-gray-800">
+                <div className={`mt-auto flex flex-wrap gap-2 pt-5 border-t border-gray-100 dark:border-gray-800 ${isRTL ? 'justify-end' : 'justify-start'}`}>
                     {project.tech.map((t) => (
                         <span
                             key={t}
