@@ -2,6 +2,7 @@ import { Database, Layout, Wrench, Server } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { skillsData } from '../data/skills';
+import { useDir } from '../hooks/useDir';
 
 // Helper to get icon
 const getIcon = (title: string) => {
@@ -34,9 +35,10 @@ const itemVariants = {
 
 const Skills = () => {
     const { t } = useTranslation();
+    const { isRTL } = useDir();
 
     return (
-        <section id="skills" className="py-16 md:py-24 transition-colors duration-300 relative z-10">
+        <section id="skills" dir={isRTL ? 'rtl' : 'ltr'} className="py-16 md:py-24 transition-colors duration-300 relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -73,7 +75,7 @@ const Skills = () => {
                                 className="bg-[var(--bg-primary)] rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-[var(--border-primary)] group"
                                 whileHover={{ y: -5 }}
                             >
-                                <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-blue-700 dark:text-blue-400">
+                                <div className={`w-12 h-12 bg-blue-50 dark:bg-blue-900/20 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-blue-700 dark:text-blue-400 ${isRTL ? 'mr-0' : ''}`}>
                                     <Icon className="w-6 h-6" />
                                 </div>
                                 <h3 className="text-lg font-bold text-[var(--text-primary)] mb-4">
@@ -94,7 +96,7 @@ const Skills = () => {
                     })}
                 </motion.div>
             </div>
-        </section >
+        </section>
     );
 };
 
