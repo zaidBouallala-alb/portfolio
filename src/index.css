@@ -89,3 +89,13 @@
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
 }
+
+/* ── RTL (Arabic) global helpers ────────────────────────────── */
+html[dir="rtl"] {
+  font-family: 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* Make sure Arabic text never gets letter-spacing that breaks glyphs */
+html[dir="rtl"] * {
+  letter-spacing: 0 !important;
+}
