@@ -5,6 +5,9 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import en from './locales/en.json';
 import fr from './locales/fr.json';
 import es from './locales/es.json';
+import ar from './locales/ar.json';
+
+const RTL_LANGUAGES = ['ar'];
 
 i18n
   .use(LanguageDetector)
@@ -14,6 +17,7 @@ i18n
       en: { translation: en },
       fr: { translation: fr },
       es: { translation: es },
+      ar: { translation: ar },
     },
     fallbackLng: 'en',
     interpolation: {
@@ -26,12 +30,16 @@ i18n
     },
   });
 
-// Keep <html lang> in sync
+// Keep <html lang> and dir in sync
 i18n.on('languageChanged', (lng) => {
-  document.documentElement.setAttribute('lang', lng);
+  const langCode = lng.substring(0, 2);
+  document.documentElement.setAttribute('lang', langCode);
+  document.documentElement.setAttribute('dir', RTL_LANGUAGES.includes(langCode) ? 'rtl' : 'ltr');
 });
 
-// Set initial lang attribute
-document.documentElement.setAttribute('lang', i18n.language || 'en');
+// Set initial lang & dir attributes
+const initialLang = (i18n.language || 'en').substring(0, 2);
+document.documentElement.setAttribute('lang', initialLang);
+document.documentElement.setAttribute('dir', RTL_LANGUAGES.includes(initialLang) ? 'rtl' : 'ltr');
 
 export default i18n;
