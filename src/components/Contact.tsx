@@ -1,13 +1,16 @@
-import { Mail, Github, Linkedin, Send, ArrowRight, MessageCircle } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, ArrowRight, ArrowLeft, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { siteConfig } from '../data/site';
+import { useDir } from '../hooks/useDir';
 
 const Contact = () => {
     const { t } = useTranslation();
+    const { isRTL } = useDir();
+    const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
 
     return (
-        <section id="contact" className="py-16 md:py-24 transition-colors duration-300 relative z-10">
+        <section id="contact" dir={isRTL ? 'rtl' : 'ltr'} className="py-16 md:py-24 transition-colors duration-300 relative z-10">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <motion.div
@@ -56,7 +59,7 @@ const Contact = () => {
                         </p>
 
                         <span className="relative z-10 inline-flex items-center gap-2 text-sm font-bold text-blue-700 dark:text-blue-400 group-hover:gap-3 transition-all">
-                            {t('contact.sendMessage')} <ArrowRight className="w-4 h-4" />
+                            {t('contact.sendMessage')} <ArrowIcon className="w-4 h-4" />
                         </span>
                     </motion.a>
 
@@ -115,10 +118,10 @@ const Contact = () => {
                             transition={{ duration: 0.5, delay: 0.3 }}
                             className="group relative z-10 sm:col-span-2 p-6 bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border-primary)] hover:border-sky-200 dark:hover:border-sky-900/50 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-4 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 dark:focus-visible:ring-blue-400"
                         >
-                            <div className="w-10 h-10 bg-[var(--bg-primary)] rounded-xl flex items-center justify-center text-sky-600 dark:text-sky-400 group-hover:scale-110 transition-transform">
+                            <div className="w-10 h-10 bg-[var(--bg-primary)] rounded-xl flex items-center justify-center text-sky-600 dark:text-sky-400 group-hover:scale-110 transition-transform flex-shrink-0">
                                 <Send className="w-5 h-5" />
                             </div>
-                            <div className="text-left">
+                            <div className={isRTL ? 'text-right' : 'text-left'}>
                                 <h5 className="font-bold text-[var(--text-primary)]">Telegram</h5>
                                 <span className="text-sm text-[var(--text-tertiary)] font-medium">{t('contact.quickChat')}</span>
                             </div>
@@ -137,10 +140,10 @@ const Contact = () => {
                             transition={{ duration: 0.5, delay: 0.4 }}
                             className="group relative z-10 sm:col-span-2 p-6 bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border-primary)] hover:border-green-200 dark:hover:border-green-900/50 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-4 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 dark:focus-visible:ring-green-400"
                         >
-                            <div className="w-10 h-10 bg-[var(--bg-primary)] rounded-xl flex items-center justify-center text-green-600 dark:text-green-400 group-hover:scale-110 transition-transform">
+                            <div className="w-10 h-10 bg-[var(--bg-primary)] rounded-xl flex items-center justify-center text-green-600 dark:text-green-400 group-hover:scale-110 transition-transform flex-shrink-0">
                                 <MessageCircle className="w-5 h-5" />
                             </div>
-                            <div className="text-left">
+                            <div className={isRTL ? 'text-right' : 'text-left'}>
                                 <h5 className="font-bold text-[var(--text-primary)]">WhatsApp</h5>
                                 <span className="text-sm text-[var(--text-tertiary)] font-medium">{t('contact.chatDirectly')}</span>
                             </div>
