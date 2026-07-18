@@ -98,6 +98,10 @@
       {
         "title": "School Management System",
         "description": "A full-stack school management application for managing students, classes, schedules, and academic resources."
+      },
+      {
+        "title": "Job Application Tracker",
+        "description": "A full-stack MERN application to track and manage job applications. Features user authentication, job CRUD, status tracking, dashboard, and search."
       }
     ]
   },

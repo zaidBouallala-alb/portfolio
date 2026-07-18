@@ -98,6 +98,10 @@
       {
         "title": "Sistema de Gestión Escolar",
         "description": "Una aplicación full-stack de gestión escolar para administrar estudiantes, clases, horarios y recursos académicos."
+      },
+      {
+        "title": "Rastreador de Solicitudes de Empleo",
+        "description": "Una aplicación MERN full-stack para rastrear y administrar solicitudes de empleo. Cuenta con autenticación de usuarios, CRUD de empleos, seguimiento de estado, panel de control y búsqueda."
       }
     ]
   },

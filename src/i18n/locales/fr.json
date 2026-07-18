@@ -98,6 +98,10 @@
       {
         "title": "Système de Gestion Scolaire",
         "description": "Une application full-stack de gestion scolaire pour gérer les étudiants, les classes, les emplois du temps et les ressources pédagogiques."
+      },
+      {
+        "title": "Suivi des Demandes d'Emploi",
+        "description": "Une application MERN full-stack pour suivre et gérer les candidatures. Comprend l'authentification des utilisateurs, le CRUD des emplois, le suivi des statuts, un tableau de bord et la recherche."
       }
     ]
   },
