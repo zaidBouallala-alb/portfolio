@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zaidbouallala.vercel.app/sitemap.xml
+Sitemap: https://zaidbouallala.dev/sitemap.xml
         
